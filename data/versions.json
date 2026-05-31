@@ -1,0 +1,76 @@
+{
+  "productName": "Temu 采集助手",
+  "currentVersion": "9.0.1",
+  "siteUpdated": "2026-05-23",
+  "releases": [
+    {
+      "version": "9.0.1",
+      "date": "2026-05-23",
+      "status": "latest",
+      "summary": "体验档改造、用户 ID 绑定验证码、操作说明站点上线",
+      "highlights": [
+        "所有档位均需验证码，支持到期续期",
+        "每个插件实例生成唯一用户 ID，验证码与本机绑定",
+        "验证弹窗与会员详情页展示用户 ID",
+        "修复验证后双面板、齿轮按钮丢失问题"
+      ],
+      "hasArticleGuide": true,
+      "hasVideoGuide": true
+    },
+    {
+      "version": "8.8.6",
+      "date": "2026-04-15",
+      "status": "stable",
+      "summary": "多平台采集与 AI 优化增强",
+      "highlights": [
+        "支持 Temu / 亚马逊 / Shein / 1688 等多平台采集",
+        "AI 标题重写与背景替换",
+        "极鲸云批量采集与每日限额"
+      ],
+      "hasArticleGuide": true,
+      "hasVideoGuide": false
+    },
+    {
+      "version": "8.5.0",
+      "date": "2026-02-01",
+      "status": "archived",
+      "summary": "店小秘直接发布与半托管模式",
+      "highlights": [
+        "店小秘草稿箱 / 直接发布切换",
+        "全托管 / 半托管 / 多模式并行",
+        "固定类目与批量编辑"
+      ],
+      "hasArticleGuide": true,
+      "hasVideoGuide": false
+    }
+  ],
+  "videos": {
+    "intro": {
+      "title": "插件安装与首次激活",
+      "duration": "1:02",
+      "url": "assets/videos/install.mp4",
+      "embedType": "local",
+      "note": "下载解压 → Chrome 加载扩展 → 验证码激活"
+    },
+    "collect": {
+      "title": "商品采集与发布流程",
+      "duration": "4:05",
+      "url": "assets/videos/collect.mp4",
+      "embedType": "local",
+      "note": "收藏商品、侧栏发布、功能设置概览"
+    },
+    "troubleshoot": {
+      "title": "清理缓存 / VPN / 无法访问前台",
+      "duration": "0:45",
+      "url": "assets/videos/troubleshoot-vpn.mp4",
+      "embedType": "local",
+      "note": "侧栏清理缓存、开 VPN、重开 Temu 标签页"
+    }
+  },
+  "links": {
+    "supportWechat": "",
+    "downloadLatest": "https://pan.baidu.com/s/1vOCE_M9bs8p2WjL3Edbl8A?pwd=1234",
+    "downloadPassword": "1234",
+    "downloadBase": "downloads/"
+  }
+}

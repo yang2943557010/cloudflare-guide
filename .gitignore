@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+*.zip
+
+# 视频体积较大，本地保留；可用 Git LFS 或 Cloudflare 直接上传
+assets/videos/*.mp4

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Temu 采集助手操作说明 — 图文教程、视频教程与历史版本" />
+  <title>Temu 采集助手 · 操作说明</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span class="brand-icon">📦</span>
+        <span>Temu 采集助手</span>
+      </a>
+      <nav class="nav-links">
+        <a href="guide/article.html">图文说明</a>
+        <a href="guide/video.html">视频教程</a>
+        <a href="versions/">历史版本</a>
+        <span class="version-pill" id="current-version"><span class="dot"></span> 加载中</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <span class="hero-badge">官方操作说明中心</span>
+      <h1>选择您需要的说明方式</h1>
+      <p>图文适合逐步对照操作；视频适合快速上手。下方可查看各版本更新记录与下载。</p>
+      <form class="home-search" action="guide/article.html" method="get" role="search">
+        <input class="home-search-input" type="search" name="q" placeholder="搜索功能说明，如：飞书、AI 模型、直接发布…" autocomplete="off" />
+        <button class="home-search-btn" type="submit">搜索</button>
+      </form>
+      <div id="latest-download-panel"></div>
+    </section>
+
+    <section class="container">
+      <div class="choice-grid">
+        <a class="choice-card article" href="guide/article.html">
+          <div class="choice-icon">📖</div>
+          <h2>图文操作说明</h2>
+          <p>含侧栏、功能设置等<strong>界面截图</strong>与逐步标注：安装、验证码、采集发布、清理缓存与常见问题。</p>
+          <div class="choice-tags">
+            <span class="tag">界面截图</span>
+            <span class="tag">可搜索</span>
+            <span class="tag">分章节</span>
+            <span class="tag">适合新手对照</span>
+          </div>
+          <span class="choice-cta">进入图文说明 →</span>
+        </a>
+
+        <a class="choice-card video" href="guide/video.html">
+          <div class="choice-icon">🎬</div>
+          <h2>视频说明</h2>
+          <p>观看录屏教程：从安装到采集发布，以及 VPN、清理缓存、无法访问前台等场景。</p>
+          <div class="choice-tags">
+            <span class="tag">直观演示</span>
+            <span class="tag">快速上手</span>
+            <span class="tag">适合首次使用</span>
+          </div>
+          <span class="choice-cta">进入视频教程 →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-header">
+        <h2>最近版本</h2>
+        <a href="versions/">查看全部历史版本 →</a>
+      </div>
+      <div class="version-list" id="home-version-list">
+        <p class="version-summary">正在加载版本信息…</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="guide-block">
+        <h2>快速入口</h2>
+        <ul>
+          <li><strong>下载最新版？</strong> → <a href="versions/">历史版本</a>页或<a href="https://pan.baidu.com/s/1vOCE_M9bs8p2WjL3Edbl8A?pwd=1234" target="_blank" rel="noopener">百度网盘</a>（提取码 <code>1234</code>）</li>
+          <li><strong>无法访问 Temu 前台？</strong> → 见<a href="guide/article.html#troubleshoot">图文说明 · 常见问题</a> 或<a href="guide/video.html#video-troubleshoot">视频 · 清理缓存/VPN</a></li>
+          <li><strong>验证码 / 用户 ID？</strong> → 侧栏点击会员 badge 或验证弹窗中查看用户 ID，办理会员时提供给客服</li>
+          <li><strong>插件内打开：</strong>侧栏顶部「操作说明」按钮会跳转到本站点</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© Temu 采集助手 · 操作说明站点</span>
+      <span>部署于 Cloudflare Pages</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

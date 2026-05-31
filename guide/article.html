@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Temu 采集助手完整功能图文说明" />
+  <title>完整功能说明 · Temu 采集助手</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="article">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">
+        <span class="brand-icon">📦</span>
+        <span>Temu 采集助手</span>
+      </a>
+      <nav class="nav-links">
+        <a href="article.html" class="active">图文说明</a>
+        <a href="video.html">视频教程</a>
+        <a href="../versions/">历史版本</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <h1 class="page-title">完整功能说明</h1>
+      <p class="page-desc">本文档覆盖插件<strong>全部用户可见功能</strong>，含<strong>界面截图逐步标注</strong>。左侧目录可快速跳转；上方搜索框可查找任意功能关键词。</p>
+
+      <div class="guide-search-wrap">
+        <div class="guide-search">
+          <span class="guide-search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="guide-search-input" class="guide-search-input" placeholder="搜索功能说明，如：飞书、AI 模型、直接发布、极鲸云…" autocomplete="off" enterkeyhint="search" />
+          <kbd class="guide-search-kbd">Esc 清除</kbd>
+        </div>
+        <div class="guide-search-results" id="guide-search-results" hidden></div>
+      </div>
+
+      <div class="guide-layout">
+        <aside class="guide-toc">
+          <h3>目录</h3>
+          <div class="toc-group">基础</div>
+          <a href="#install">安装与更新</a>
+          <a href="#verify">验证码与会员</a>
+          <a href="#guide-visual">图文指引（截图）</a>
+          <a href="#sidebar">侧栏总览</a>
+          <a href="#page-helpers">页面辅助</a>
+          <div class="toc-group">采集</div>
+          <a href="#collect-single">单品 / 列表采集</a>
+          <a href="#collect-multiplatform">1688 / 多平台</a>
+          <a href="#collect-batch">多链接批量采集</a>
+          <a href="#geekbi">极鲸云 / GeekBI</a>
+          <div class="toc-group">编辑</div>
+          <a href="#detail">商品详情编辑</a>
+          <div class="toc-group">发布</div>
+          <a href="#publish-mode">托管与发布模式</a>
+          <a href="#fixed-category">固定类目与属性</a>
+          <a href="#publish-ops">发布 / 导出操作</a>
+          <a href="#dianxiaomi-status">店小秘状态对照</a>
+          <a href="#exported-filter">已导出筛选</a>
+          <a href="#import-products">导入商品</a>
+          <a href="#batch-ops">批量工具</a>
+          <a href="#batch-edit-detail">批量编辑字段</a>
+          <a href="#trademark-check">商标检查</a>
+          <a href="#export-history">导出历史</a>
+          <div class="toc-group">索引</div>
+          <a href="#feature-index">功能覆盖索引</a>
+          <div class="toc-group">设置</div>
+          <a href="#settings-image">图片 / 产品选项</a>
+          <a href="#settings-price">价格 / 汇率</a>
+          <a href="#settings-ai">智能优化 AI</a>
+          <a href="#settings-publish">发布选项</a>
+          <a href="#settings-attr">默认属性 / 亚马逊</a>
+          <a href="#settings-warehouse">半托仓库 / 飞书</a>
+          <a href="#feishu-config">飞书表格配置</a>
+          <a href="#settings-other">其他设置</a>
+          <a href="#ai-panel">AI 模型配置</a>
+          <div class="toc-group">工具</div>
+          <a href="#product-library">共享选品库</a>
+          <a href="#history-1688">1688 / 商标历史</a>
+          <a href="#category-mapper">类目 ID 映射</a>
+          <a href="#shortcuts">快捷键</a>
+          <div class="toc-group">卖家后台</div>
+          <a href="#threshold">申报价格阈值</a>
+          <div class="toc-group">其他</div>
+          <a href="#troubleshoot">常见问题</a>
+        </aside>
+
+        <div class="guide-content">
+
+          <!-- ===== 基础 ===== -->
+          <section class="guide-block" id="install" data-search="安装 下载 百度网盘 解压 加载扩展">
+            <h2><span class="step-num">1</span>安装与更新</h2>
+            <ol>
+              <li>下载最新版：打开<a href="https://pan.baidu.com/s/1vOCE_M9bs8p2WjL3Edbl8A?pwd=1234" target="_blank" rel="noopener">百度网盘</a>（提取码 <code>1234</code>），下载 zip 并解压到固定目录（内含 <code>manifest.json</code>）。也可在<a href="../versions/">历史版本</a>页点击「下载最新版」。</li>
+              <li><code>chrome://extensions/</code> → 开启<strong>开发者模式</strong> → <strong>加载已解压的扩展程序</strong>。</li>
+              <li>访问 Temu 商品详情页，确认出现右侧「Temu 收藏夹」侧栏与「收藏商品」悬浮按钮。</li>
+              <li>更新：下载新版 → 扩展页点「重新加载」或重新加载文件夹。</li>
+            </ol>
+            <div class="tip-box">💡 采集 UI 出现在 Temu 前台、1688、Shein、亚马逊、极鲸云等；卖家后台 / 店小秘仅加载<strong>阈值工具</strong>，不显示采集侧栏。</div>
+          </section>
+
+          <section class="guide-block" id="verify">
+            <h2><span class="step-num">2</span>验证码与会员</h2>
+            <h3 class="guide-sub">验证流程</h3>
+            <ol>
+              <li>首次进入采集页弹出「验证」窗口，记录<strong>用户 ID</strong>（10 位数字，可点复制按钮）并办理验证码。</li>
+              <li>输入验证码 →「确认」；「获取验证码 →」跳转办理页；「联系客服」扫码咨询。</li>
+              <li>点击侧栏会员 badge 查看到期时间、用户 ID，可「续费 / 升级」。</li>
+              <li>输入 <code>FREE3DAYS</code> 可体验 1 天青铜（每设备一次）。</li>
+            </ol>
+            <table class="guide-table">
+              <thead><tr><th>档位</th><th>每日采集点</th><th>极鲸云</th><th>卖家后台阈值</th></tr></thead>
+              <tbody>
+                <tr><td>体验档</td><td>20 点</td><td>5 次/天</td><td>不可用</td></tr>
+                <tr><td>青铜</td><td>200 点</td><td>按验证码</td><td>可用</td></tr>
+                <tr><td>黄金</td><td>550 点</td><td>按验证码</td><td>可用</td></tr>
+                <tr><td>钻石</td><td>无限制</td><td>按验证码</td><td>可用</td></tr>
+              </tbody>
+            </table>
+            <div class="warn-box">⚠️ 验证码与用户 ID 绑定，不可多人共用。</div>
+          </section>
+
+          <section class="guide-block" id="guide-visual">
+            <h2><span class="step-num">★</span>图文指引（按界面截图对照）</h2>
+            <p>以下截图对应插件最常用界面。建议顺序：Temu 页<strong>收藏商品</strong> → 侧栏<strong>选模式并发布</strong> → <strong>齿轮 ⚙️ 功能设置</strong> → 按需配置飞书 / AI 模型。</p>
+            <table class="guide-table">
+              <thead><tr><th>图号</th><th>截图</th><th>对应章节</th></tr></thead>
+              <tbody>
+                <tr><td>图 1</td><td>侧栏 + Temu 页「收藏商品」</td><td><a href="#sidebar">侧栏总览</a> · <a href="#collect-single">采集</a> · <a href="#publish-ops">发布</a></td></tr>
+                <tr><td>图 2</td><td>功能设置 · 图片 / 产品 / 价格倍率</td><td><a href="#settings-image">图片 / 产品选项</a></td></tr>
+                <tr><td>图 3</td><td>功能设置 · 平台开关 / 汇率 / 其他</td><td><a href="#settings-price">价格 / 汇率</a> · <a href="#settings-other">其他设置</a></td></tr>
+                <tr><td>图 4</td><td>功能设置 · AI 智能优化</td><td><a href="#settings-ai">智能优化 AI</a></td></tr>
+                <tr><td>图 5</td><td>功能设置 · 发布选项</td><td><a href="#settings-publish">发布选项</a></td></tr>
+                <tr><td>图 6</td><td>功能设置 · 默认属性 / 亚马逊</td><td><a href="#settings-attr">默认属性 / 亚马逊</a></td></tr>
+                <tr><td>图 7～9</td><td>飞书表格配置（三标签页）</td><td><a href="#feishu-config">飞书表格配置</a></td></tr>
+                <tr><td>图 10～14</td><td>AI 模型配置（入门 / 文字 / 图片 / 扩展工具 / 高级；<strong>视觉</strong>标签无独立截图）</td><td><a href="#ai-panel">AI 模型配置</a></td></tr>
+                <tr><td>图 15</td><td>店小秘 · 待发布 / 发布失败 / 在线产品</td><td><a href="#dianxiaomi-status">店小秘状态对照</a></td></tr>
+              </tbody>
+            </table>
+            <div class="tip-box">💡 打开功能设置：侧栏右上角<strong>齿轮 ⚙️</strong>。修改任何选项后务必点底部<strong>保存</strong>，否则下次发布不会生效。截图上<strong>红色数字</strong>与下方说明一一对应，悬停可高亮。</div>
+          </section>
+
+          <section class="guide-block" id="sidebar">
+            <h2><span class="step-num">3</span>侧栏总览（Temu 收藏夹）</h2>
+            <p>在 Temu 商品页左下角点击<strong>「收藏商品 ↑」</strong>将商品加入右侧「未导出商品」列表；侧栏是采集、编辑与发布的主控制台。</p>
+            <figure class="guide-figure" data-figure="fig1">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/01-sidepanel.png" alt="Temu 收藏夹侧栏与收藏商品按钮" loading="lazy" />
+                <span class="guide-pin" style="left:13%;top:92%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:58%;top:7%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:72%;top:7%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:96%;top:7%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:75%;top:18%" data-pin="5">5</span>
+                <span class="guide-pin" style="left:75%;top:25%" data-pin="6">6</span>
+                <span class="guide-pin" style="left:75%;top:36%" data-pin="7">7</span>
+                <span class="guide-pin" style="left:75%;top:47%" data-pin="8">8</span>
+                <span class="guide-pin" style="left:75%;top:58%" data-pin="9">9</span>
+                <span class="guide-pin" style="left:75%;top:71%" data-pin="10">10</span>
+                <span class="guide-pin" style="left:75%;top:85%" data-pin="11">11</span>
+              </div>
+              <figcaption class="guide-caption">图 1 · 悬停或点击数字标注可高亮下方说明</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 1 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig1">
+                <li id="fig1-pin-1" data-pin="1"><strong><span class="pin-num">1</span>收藏商品</strong> — Temu 详情页左下角蓝色悬浮按钮，点击开始采集当前商品。</li>
+                <li id="fig1-pin-2" data-pin="2"><strong><span class="pin-num">2</span>会员状态</strong> — 如「黄金会员 · 36 天后过期」；点击查看详情、用户 ID、续费。</li>
+                <li id="fig1-pin-3" data-pin="3"><strong><span class="pin-num">3</span>清理缓存 / 操作说明</strong> — 无法访问 Temu 前台时先清理缓存；「操作说明」打开本站点。</li>
+                <li id="fig1-pin-4" data-pin="4"><strong><span class="pin-num">4</span>齿轮 ⚙️</strong> — 打开「功能设置」面板（图 2～6 均在此面板内）。</li>
+                <li id="fig1-pin-5" data-pin="5"><strong><span class="pin-num">5</span>托管模式</strong> — <strong>单模式</strong>每次只选一个平台；<strong>多模式</strong>可同时勾选多个平台并行发布。</li>
+                <li id="fig1-pin-6" data-pin="6"><strong><span class="pin-num">6</span>发布模式</strong> — <strong>店小秘草稿箱</strong>先存草稿；<strong>直接发布</strong>提交到所选店铺。</li>
+                <li id="fig1-pin-7" data-pin="7"><strong><span class="pin-num">7</span>平台卡片</strong> — 全托管 / 半托管 / 亚马逊 / Shein，当前选中项有蓝色边框。</li>
+                <li id="fig1-pin-8" data-pin="8"><strong><span class="pin-num">8</span>未导出商品 (N)</strong> — 已采集、尚未导出的列表；工具栏有<strong>自动选择</strong>与<strong>固定类目</strong>。</li>
+                <li id="fig1-pin-9" data-pin="9"><strong><span class="pin-num">9</span>功能按钮区</strong> — 导出 Excel、历史、批量编辑、删除全部、处理失败、AI 优化、导入商品、更新店铺。</li>
+                <li id="fig1-pin-10" data-pin="10"><strong><span class="pin-num">10</span>店铺下拉 + 直接发布</strong> — 选择目标店铺后点橙色「直接发布」；系统按约 <strong>3096KB</strong> 体积上限自动计算本批可发数量，超限商品留在未导出列表等待下一批。</li>
+                <li id="fig1-pin-11" data-pin="11"><strong><span class="pin-num">11</span>商品卡片</strong> — 显示缩略图、标题、价格、销量；右侧「删除」可移出列表。</li>
+              </ol>
+            </div>
+            <h3 class="guide-sub">其他侧栏入口</h3>
+            <ul class="feature-list">
+              <li><strong>🌐 共享选品库</strong> — 云端共享商品库浏览与导入</li>
+              <li><strong>🕐 1688 查询历史</strong> — 图搜 1688 / 亚马逊商标检查历史</li>
+              <li><strong>↗ 类目映射</strong> — Temu / Shein / 亚马逊类目 ID 互查</li>
+              <li><strong>全部恢复</strong> — 已导出列表可批量恢复至未导出</li>
+              <li><strong>折叠按钮</strong> — 收起侧栏；左侧「展开收藏夹」可再打开</li>
+              <li><strong>拖拽左边缘</strong> — 调整侧栏宽度</li>
+              <li><strong>未导出 / 已导出</strong> — 两个折叠列表区，采集先进未导出</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="page-helpers">
+            <h2>页面辅助功能</h2>
+            <ul class="feature-list">
+              <li><strong>Temu 回到顶部</strong> — 消费者端 Temu 页右下角浮动按钮，长列表快速回顶（与侧栏位置自动避让）</li>
+              <li><strong>侧栏回到顶部</strong> — 侧栏内容区滚动较深时，侧栏内也会出现回顶按钮</li>
+              <li><strong>设置齿轮触发条</strong> — 页面右侧边缘有一条细竖条，点击可显示/隐藏「功能设置」齿轮按钮（齿轮被隐藏时使用）</li>
+              <li><strong>无法访问页提示条</strong> — 跳转到 <code>bgn_no_access</code> 等受限页时，页面底部显示黄色提示条，引导清理缓存 / 开 VPN / 查看操作说明</li>
+              <li><strong>ESC 键</strong> — 优先关闭商品详情、功能设置等弹层，再折叠侧栏（详见<a href="#shortcuts">快捷键</a>）</li>
+              <li><strong>扩展调试日志</strong> — 功能设置中开启后，控制台输出 <code>[采集助手]</code> 前缀日志，便于排查问题</li>
+            </ul>
+          </section>
+
+          <div class="guide-category">采集功能</div>
+
+          <section class="guide-block" id="collect-single">
+            <h2>单品 / 列表页采集</h2>
+            <h3 class="guide-sub">商品详情页</h3>
+            <ol>
+              <li>打开 Temu 商品详情页，点击左下角<strong>「收藏商品 ↑」</strong>悬浮按钮（见<a href="#sidebar">图 1</a>）。</li>
+              <li>采集中显示进度，成功后 toast 提示，商品进入侧栏「未导出商品」。</li>
+              <li>每采集 1 个商品消耗 1 点（钻石会员不限）。</li>
+              <li>若开启「采集时自动」AI 选项，采集完成后自动执行标题重写 / 背景替换等。</li>
+            </ol>
+            <h3 class="guide-sub">Temu 列表 / 搜索页</h3>
+            <ol>
+              <li>列表每个商品卡片上注入<strong>「+ 采集」</strong>按钮，无需进详情即可采集。</li>
+              <li>已入库显示「已采集」；重复采集会询问是否覆盖。</li>
+              <li><strong>极鲸云 API 快速采集</strong> — 若已配置极鲸云 Token 且会员允许，列表页「+ 采集」会直接调用极鲸云 API 拉取完整商品数据入库（比打开详情页更快）；未配置 Token 时提示去多链接面板「🔑 获取 Token」。</li>
+            </ol>
+            <h3 class="guide-sub">1688 / Shein / 亚马逊等</h3>
+            <p>在对应平台商品页同样显示「收藏商品」与侧栏，采集流程一致，发布时按所选托管模式处理。</p>
+          </section>
+
+          <section class="guide-block" id="collect-multiplatform">
+            <h2>1688 / 多平台采集说明</h2>
+            <table class="guide-table">
+              <thead><tr><th>平台</th><th>采集入口</th><th>发布方式</th></tr></thead>
+              <tbody>
+                <tr><td>Temu 前台</td><td>悬浮按钮 / 列表「+ 采集」/ 多链接批量</td><td>全托管 / 半托管</td></tr>
+                <tr><td>1688 详情页</td><td>「收藏商品」</td><td>按托管模式导出；已导出筛选可识别 1688 来源</td></tr>
+                <tr><td>Shein</td><td>「收藏商品」</td><td>Shein 托管（多草稿）</td></tr>
+                <tr><td>亚马逊</td><td>「收藏商品」</td><td>Excel / 模板填充 / 店小秘亚马逊</td></tr>
+                <tr><td>极鲸云 GeekBI</td><td>极鲸云 API + 批量保存</td><td>见「极鲸云 / GeekBI」章节</td></tr>
+              </tbody>
+            </table>
+            <div class="tip-box">💡 1688 订单列表页、卖家后台、店小秘等域名<strong>不显示</strong>采集侧栏；店小秘会自动清理弹窗。</div>
+          </section>
+
+          <section class="guide-block" id="collect-batch">
+            <h2>多链接批量采集</h2>
+            <p>入口：悬浮「收藏商品」旁的<strong>向上箭头</strong> → 打开「多链接批量采集」面板。</p>
+            <ul class="feature-list">
+              <li><strong>链接输入区</strong> — 每行一条链接；支持完整 URL、纯 goods_id、goods_id= 格式</li>
+              <li><strong>抓取当前页</strong> — 从当前 Temu 列表页抓取商品链接</li>
+              <li><strong>导入表格</strong> — 从 Excel / CSV 导入链接列表</li>
+              <li><strong>采集后自动保存链接</strong> — 完成后保存链接到本地</li>
+              <li><strong>仅采集页面数据</strong> — 只解析 DOM，不调用 Temu 内部 API（更稳、稍慢）</li>
+              <li><strong>随机等待时间</strong> — 每条完成后随机等待 N～M 秒，降低风控（建议 ≥12 秒）</li>
+              <li><strong>筛选条件</strong> — 销量、评论率、评分、价格区间、售出率等（仅「抓取当前页」生效）</li>
+              <li><strong>🚀 开始批量采集 / 停止采集</strong> — 显示进度、当前 URL、实时日志</li>
+              <li><strong>链接管理</strong> — 保存 / 复制 / 清空链接；可设每次复制数量、跳过已复制</li>
+              <li><strong>📋 抓取历史</strong> — 查看历史抓取记录</li>
+              <li><strong>❓ 格式帮助</strong> — 支持的链接格式说明</li>
+            </ul>
+            <h3 class="guide-sub">抓取当前页 · 筛选条件（全部）</h3>
+            <p>仅在使用<strong>「抓取当前页」</strong>时生效，手动粘贴链接批量采集时不生效。</p>
+            <table class="guide-table">
+              <thead><tr><th>条件</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>销量 &gt;</td><td>最低销量</td></tr>
+                <tr><td>销量 &lt;</td><td>最高销量（可选）</td></tr>
+                <tr><td>评论率 &lt;</td><td>评论率上限（%）</td></tr>
+                <tr><td>评分 &gt;</td><td>最低评分</td></tr>
+                <tr><td>评论数 &gt;</td><td>最低评论数</td></tr>
+                <tr><td>价格 &lt; / 价格 &gt;</td><td>价格区间</td></tr>
+                <tr><td>售出率 &gt;</td><td>最低售出率（%）</td></tr>
+              </tbody>
+            </table>
+            <h3 class="guide-sub">采集中进度面板</h3>
+            <ul class="feature-list">
+              <li>显示当前进度 x / 总数、百分比进度条</li>
+              <li>显示<strong>当前处理 URL</strong>与已用时间</li>
+              <li><strong>实时日志</strong> — 每条成功 / 失败记录，含跳过已入库提示</li>
+            </ul>
+            <h3 class="guide-sub">链接管理（折叠区）</h3>
+            <ul class="feature-list">
+              <li><strong>每次复制数量</strong> — 批量复制链接时的条数上限</li>
+              <li><strong>跳过已复制项</strong> — 复制时忽略已复制过的链接</li>
+              <li><strong>💾 保存链接</strong> — 持久化到浏览器存储</li>
+              <li><strong>📋 复制链接</strong> — 按设置数量复制到剪贴板</li>
+              <li><strong>🗑️ 清空</strong> — 清空已保存链接（不可恢复）</li>
+              <li><strong>🔄 重置状态</strong> — 清空「已复制」标记，不删链接本身</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="geekbi">
+            <h2>极鲸云 / GeekBI 采集</h2>
+            <p>在多链接面板勾选<strong>「极鲸云接口采集」</strong>，通过极鲸云 API 拉取全量商品数据，无需逐个开标签页。</p>
+            <ul class="feature-list">
+              <li><strong>🔑 获取 Token</strong> — 多链接面板标题栏配置极鲸云 Token（必填）</li>
+              <li><strong>GeekBI 页面自动提取</strong> — 登录 <code>geekbi.com</code> 后，扩展会自动扫描 localStorage / Cookie 中的 Token；也可在 AI 设置 → 扩展工具手动粘贴</li>
+              <li><strong>体验档</strong> — 极鲸云 5 次/天；钻石会员按验证码配置次数（100～20 万/天或不限）</li>
+              <li><strong>GeekBI 站点</strong> — 在 geekbi.com 可配合极鲸云批量保存商品到选品流程</li>
+              <li><strong>Token 持久化</strong> — 可通过功能设置「导入 / 导出全部」或 AI 设置「导出配置」备份 Token</li>
+              <li><strong>批量标签页采集</strong> — 非极鲸云模式下，后台可自动跳转商品页采集并返回列表（由多链接批量触发）</li>
+            </ul>
+          </section>
+
+          <div class="guide-category">商品详情编辑</div>
+
+          <section class="guide-block" id="detail" data-search="商品详情 编辑 标题 价格 属性 1688同款 图片编辑器 抠图">
+            <h2>商品详情弹窗</h2>
+            <p>点击侧栏任意商品卡片打开详情，可编辑后再发布。</p>
+            <h3 class="guide-sub">基础信息</h3>
+            <ul class="feature-list">
+              <li><strong>标题 / 价格 / 销量</strong> — 点击字段可直接 inline 编辑</li>
+              <li><strong>查看商品页面</strong> — 底部按钮在新标签页打开原始商品链接</li>
+              <li><strong>商品详情 HTML</strong> — 可查看并编辑采集到的详情描述区域</li>
+              <li><strong>属性列表</strong> — 支持新增、删除、折叠展开各属性行</li>
+            </ul>
+            <h3 class="guide-sub">图片与视频</h3>
+            <ul class="feature-list">
+              <li><strong>多颜色轮播切换</strong> — 分色 / 单色服装切换轮播图</li>
+              <li><strong>编辑图片 / 替换图片</strong> — 打开图片编辑器（裁剪、马赛克等）</li>
+              <li><strong>下载单张 / 下载全部</strong> — 保存主图到本地文件夹</li>
+              <li><strong>选择保存位置</strong> — 持久化下载目录</li>
+              <li><strong>AI 去水印</strong> — 单张主图 / 型号图去水印（需 AI 配置）</li>
+              <li><strong>移除图片 / 移除视频</strong> — 从商品中删除</li>
+              <li><strong>视频下载 / 新窗口打开</strong> — 处理防盗链视频</li>
+            </ul>
+            <h3 class="guide-sub">规格与类目</h3>
+            <ul class="feature-list">
+              <li><strong>+ 添加规格 / + 添加规格值</strong> — 手动增删 SKU</li>
+              <li><strong>查询 1688 同款</strong> — 以规格图搜索 1688 同款</li>
+              <li><strong>选择类目</strong> — 手动指定 Temu / Shein / 亚马逊类目</li>
+            </ul>
+            <h3 class="guide-sub">包装与半托管</h3>
+            <ul class="feature-list">
+              <li><strong>包装方案下拉</strong> — 选择已保存的包装预设</li>
+              <li><strong>修改保存</strong> — 覆盖当前方案</li>
+              <li><strong>保存为新方案</strong> — 另存为新预设名</li>
+              <li><strong>设为默认</strong> — 新商品默认套用该方案</li>
+              <li><strong>删除方案</strong> — 删除不需要的预设</li>
+              <li><strong>包装尺寸 / 形状 / 类型</strong> — 长宽高、重量、硬软包装</li>
+              <li><strong>经营站点</strong> — 半托管可搜索选择国家站点</li>
+              <li><strong>发货时效 / 库存</strong> — 半托管承诺天数与库存数量</li>
+              <li><strong>半托管仓库绑定</strong> — 显示仓库绑定状态</li>
+            </ul>
+            <h3 class="guide-sub">尺码指南</h3>
+            <p>服装等类目若采集到尺码表，详情中显示<strong>尺码指南</strong>区域：可在「身体测量 / 商品尺寸」Tab 间切换，含模特试穿信息与表格数据。</p>
+            <h3 class="guide-sub">图片编辑器</h3>
+            <p>「编辑图片」打开独立编辑器，保存后写回商品主图。主要功能：</p>
+            <ul class="feature-list">
+              <li><strong>AI 抠图 / 白底图</strong> — 智能去背景；白底图需先抠图再换背景</li>
+              <li><strong>裁剪 / 旋转 / 翻转</strong> — 基础几何调整</li>
+              <li><strong>马赛克 / 模糊 / 画笔</strong> — 局部涂抹遮挡</li>
+              <li><strong>文字 / 形状 / 标尺</strong> — 标注与测量</li>
+              <li><strong>滤镜效果</strong> — 多种图像滤镜</li>
+              <li><strong>调整尺寸</strong> — 修改输出像素尺寸</li>
+              <li><strong>撤销 / 重做</strong> — <code>Ctrl+Z</code> / <code>Ctrl+Y</code>；<code>Ctrl+滚轮</code> 缩放，<code>Ctrl+拖拽</code> 平移画布</li>
+            </ul>
+            <h3 class="guide-sub">亚马逊模式</h3>
+            <p>详情中可查看 AI 生成的<strong>描述 / 五要点 / 关键词</strong>，支持<strong>翻译为中文</strong>预览；模板填充与发布时会使用这些数据。</p>
+            <p>底部<strong>「保存修改」</strong>将编辑写回本地商品数据。</p>
+          </section>
+
+          <div class="guide-category">发布与导出</div>
+
+          <section class="guide-block" id="publish-mode">
+            <h2>托管模式与发布方式</h2>
+            <table class="guide-table">
+              <thead><tr><th>托管模式</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>全托管</td><td>Temu 全托管，导出 Excel 或店小秘直接发布</td></tr>
+                <tr><td>半托管</td><td>Temu 半托管，需配置仓库 / 站点 / 运费</td></tr>
+                <tr><td>亚马逊</td><td>导出 Excel、模板填充、店小秘亚马逊发布；不支持自动发布</td></tr>
+                <tr><td>Shein</td><td>Shein 全托管（目前以草稿为主）</td></tr>
+              </tbody>
+            </table>
+            <ul class="feature-list">
+              <li><strong>单模式</strong> — 每次只选一个平台</li>
+              <li><strong>多模式</strong> — 勾选多个平台，发布时并行提交</li>
+              <li><strong>店小秘草稿箱</strong> — 保存草稿，稍后人工检查发布</li>
+              <li><strong>直接发布</strong> — 提交后直接发布到所选店铺（Temu / Shein 等）</li>
+              <li><strong>选择店铺</strong> — 未导出列表上方下拉框，支持多选 / 全选</li>
+              <li><strong>自动选择 / 固定类目</strong> — 自动匹配或指定 Temu / Shein / 亚马逊类目</li>
+              <li><strong>固定属性(N)</strong> — 固定类目下配置属性默认值，留空则发布时随机</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="fixed-category">
+            <h2>固定类目与固定属性</h2>
+            <h3 class="guide-sub">类目模式切换</h3>
+            <p>未导出列表工具栏：<strong>自动选择</strong>（按采集数据智能匹配） / <strong>固定类目</strong>（始终用指定类目）。</p>
+            <ol>
+              <li>切到「固定类目」→ 点<strong>「选择」</strong>打开类目树形选择器（支持搜索）。</li>
+              <li>选定后工具栏显示类目名称；Temu / Shein / 亚马逊各自独立记忆。</li>
+              <li>点<strong>「固定属性(N)」</strong>打开属性配置弹窗：带 * 的必填属性可指定固定值，留空则发布时自动随机。</li>
+            </ol>
+            <h3 class="guide-sub">店铺多选</h3>
+            <p>店铺下拉支持<strong>全选 / 取消全选</strong>多店铺；仅一个店铺时会自动选中并记忆。</p>
+          </section>
+
+          <section class="guide-block" id="publish-ops">
+            <h2>发布 / 导出主操作</h2>
+            <table class="guide-table">
+              <thead><tr><th>按钮</th><th>作用</th></tr></thead>
+              <tbody>
+                <tr><td>直接发布 / 保存草稿</td><td>主发布按钮；直接发布时按约 3096KB 上限自动计算本批数量</td></tr>
+                <tr><td>导出 Excel</td><td>按当前托管模式导出店小秘格式 xlsx</td></tr>
+                <tr><td>多模式发布</td><td>多模式下次提交到所有选中平台</td></tr>
+                <tr><td>模板填充</td><td>亚马逊：上传 Excel 模板，AI 填充后下载</td></tr>
+                <tr><td>发布（亚马逊）</td><td>一键发布到店小秘亚马逊</td></tr>
+                <tr><td>检查</td><td>亚马逊：AI 检查标题 / 型号 / 轮播图商标侵权</td></tr>
+                <tr><td>删除 / 恢复</td><td>单条从未导出删除或从已导出恢复</td></tr>
+                <tr><td>删除全部 / 全部恢复</td><td>批量清空或恢复列表</td></tr>
+              </tbody>
+            </table>
+            <p>侧栏「已导出商品」支持多条件筛选与排序，完整字段说明见<a href="#exported-filter">已导出商品筛选</a>章节。</p>
+            <div class="tip-box">💡 发布 / 导出时会自动应用功能设置中的图片处理、产品选项、价格倍率、AI 等已保存配置。发布后在店小秘哪里查看？见下节<a href="#dianxiaomi-status">店小秘状态对照</a>。</div>
+          </section>
+
+          <section class="guide-block" id="dianxiaomi-status" data-search="店小秘 草稿箱 待发布 发布失败 在线产品 在线商品 发布成功 dianxiaomi">
+            <h2>店小秘商品状态对照</h2>
+            <p>使用插件「<strong>保存草稿</strong>」或「<strong>直接发布</strong>」后，商品会进入<strong>店小秘</strong>对应模块。打开店小秘 → 顶部 <strong>产品</strong> → 选择平台（Temu 全托管 / 半托管、亚马逊、Shein 等），左侧栏三个区域含义如下：</p>
+            <figure class="guide-figure" data-figure="fig15">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/15-dianxiaomi-status.png" alt="店小秘产品页：待发布、发布失败、在线产品对照" loading="lazy" />
+                <span class="guide-pin" style="left:12%;top:42%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:12%;top:52%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:12%;top:72%" data-pin="3">3</span>
+              </div>
+              <figcaption class="guide-caption">图 15 · 店小秘左侧栏：草稿箱 / 发布失败 / 发布成功 在哪里找</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 15 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig15">
+                <li id="fig15-pin-1" data-pin="1"><strong><span class="pin-num">1</span>待发布产品 → 所有分类 = 草稿箱</strong> — 插件选择「<strong>店小秘草稿箱</strong>」模式发布的商品会出现在这里；尚未提交到 Temu / 亚马逊等平台，可继续编辑后再发布。</li>
+                <li id="fig15-pin-2" data-pin="2"><strong><span class="pin-num">2</span>发布失败</strong> — 已尝试发布但因类目、属性、图片、价格等原因被平台驳回的商品；括号内数字为失败条数。侧栏可点<strong>「处理失败」</strong>拉取失败记录并重试。</li>
+                <li id="fig15-pin-3" data-pin="3"><strong><span class="pin-num">3</span>在线产品 → 所有分类 = 发布成功</strong> — 已成功提交到平台、处于在线状态的商品；即<strong>发布成功</strong>后的最终位置。</li>
+              </ol>
+            </div>
+            <table class="guide-table">
+              <thead><tr><th>店小秘左侧栏</th><th>含义</th><th>插件侧栏对应操作</th></tr></thead>
+              <tbody>
+                <tr><td><strong>待发布产品</strong> · 所有分类</td><td>草稿箱（未提交平台）</td><td>发布模式选「店小秘草稿箱」→ 保存草稿</td></tr>
+                <tr><td><strong>发布失败</strong>（带数量）</td><td>发布被驳回</td><td>「处理失败」→ 查看原因并重试</td></tr>
+                <tr><td><strong>在线产品</strong> · 所有分类</td><td>发布成功、已在线</td><td>发布模式选「直接发布」→ 直接发布</td></tr>
+              </tbody>
+            </table>
+            <div class="warn-box">⚠️ 不同平台（Temu 全托管 / 半托管、亚马逊、Shein）各自独立，需在顶部平台菜单切换后再看对应左侧栏。</div>
+          </section>
+
+          <section class="guide-block" id="exported-filter" data-search="已导出 筛选 排序 平台 来源 店铺 类目 导出时间">
+            <h2>已导出商品筛选</h2>
+            <p>侧栏「已导出商品」区域 → 点击<strong>筛选</strong>按钮展开筛选面板，可快速定位历史导出记录。</p>
+            <table class="guide-table">
+              <thead><tr><th>筛选项</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>平台</td><td>全部 / 当前模式 / Temu / 亚马逊 / 1688 / Shein / AliExpress / Alibaba / 其他</td></tr>
+                <tr><td>来源</td><td>导出 Excel / 直接发布 / 亚马逊发布 / 模板填充 / 未标记</td></tr>
+                <tr><td>关键词</td><td>匹配标题、URL、商品 ID、类目 ID</td></tr>
+                <tr><td>店铺</td><td>店铺名称或 ID</td></tr>
+                <tr><td>类目 ID</td><td>精确匹配类目</td></tr>
+                <tr><td>图片 / SKU</td><td>有 / 无</td></tr>
+                <tr><td>价格 / 销量</td><td>区间范围</td></tr>
+                <tr><td>导出时间</td><td>起止日期</td></tr>
+                <tr><td>排序</td><td>导出时间、价格、销量、标题 A-Z 等</td></tr>
+              </tbody>
+            </table>
+            <p>点<strong>应用筛选</strong>生效；<strong>重置</strong>清空条件。筛选状态下「删除全部」「全部恢复」仅作用于当前筛选结果。</p>
+          </section>
+
+          <section class="guide-block" id="import-products" data-search="导入商品 SKC SPU 店小秘 Excel 在线商品">
+            <h2>从店小秘导入商品</h2>
+            <p>未导出列表 → <strong>导入商品</strong>（需已登录店小秘，部分功能需付费会员）。用于把店小秘<strong>在线商品</strong>拉回插件侧栏继续编辑或二次发布。</p>
+            <ol>
+              <li>点击「导入商品」打开弹窗。</li>
+              <li><strong>方式 A · 按 ID 查询</strong> — Temu / 全半托管填 <strong>SKC</strong>（多个可用逗号、空格或换行分隔）；Shein 模式填 <strong>SPU ID</strong>。插件会调用店小秘 API 查询并解析 Excel 详情。</li>
+              <li><strong>方式 B · 拖入 Excel</strong> — 将店小秘导出的 <code>.xlsx / .xls</code> 拖入虚线区，或点击选择文件直接解析。</li>
+              <li>导入完成后显示新增 / 更新 / 跳过数量，商品进入「未导出商品」列表。</li>
+            </ol>
+            <div class="tip-box">💡 导入会按当前<strong>托管模式</strong>（全托管 / 半托管 / Shein）匹配店小秘对应平台数据；亚马逊模式请使用 SKC/SPU 方式或 Excel 导入。</div>
+          </section>
+
+          <section class="guide-block" id="batch-ops">
+            <h2>批量工具概览</h2>
+            <ul class="feature-list">
+              <li><strong>批量编辑</strong> — 见下节「批量编辑字段」</li>
+              <li><strong>AI 优化</strong> — 对未导出商品执行已启用的 AI（需先勾选「启用」）</li>
+              <li><strong>处理失败</strong> — 从店小秘「<a href="#dianxiaomi-status">发布失败</a>」列表拉取失败记录并重试</li>
+              <li><strong>导入商品</strong> — 见<a href="#import-products">从店小秘导入</a>章节</li>
+              <li><strong>更新店铺</strong> — 同步店小秘店铺列表</li>
+            </ul>
+            <h3 class="guide-sub">亚马逊模板填充（步骤）</h3>
+            <ol>
+              <li>亚马逊模式 →「模板填充」→ 上传 Excel 模板</li>
+              <li>配置工作表 / 表头行 / 数据起始行 → 预览 → 填充并下载</li>
+            </ol>
+          </section>
+
+          <section class="guide-block" id="batch-edit-detail">
+            <h2>批量编辑字段明细</h2>
+            <p>未导出 → <strong>批量编辑</strong>：勾选字段填值 →「应用」，对全部未导出商品生效。</p>
+            <table class="guide-table">
+              <thead><tr><th>分组</th><th>字段</th></tr></thead>
+              <tbody>
+                <tr><td>类目</td><td>类目 ID（可打开选择器）</td></tr>
+                <tr><td>包装</td><td>长/宽/高(cm)、重量(kg)、形状、类型</td></tr>
+                <tr><td>库存发货</td><td>库存、发货时效(天)</td></tr>
+                <tr><td>标题</td><td>前缀、后缀、查找替换</td></tr>
+                <tr><td>价格</td><td>缩放倍数、固定价格</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="guide-block" id="trademark-check">
+            <h2>亚马逊商标检查</h2>
+            <p>亚马逊模式 → <strong>「检查」</strong>：批量检测标题、型号、轮播图商标风险（AI）；结果保存在 1688 历史窗口「商标检查」Tab，可导出 CSV。</p>
+          </section>
+
+          <section class="guide-block" id="export-history">
+            <h2>导出历史</h2>
+            <p>未导出列表点<strong>「历史」</strong>打开导出历史窗口。</p>
+            <ul class="feature-list">
+              <li><strong>卡片 / 表格视图</strong> — 查看 Excel、模板填充等导出记录</li>
+              <li><strong>筛选</strong> — 按类型、托管模式、时间过滤</li>
+              <li><strong>搜索</strong> — 文件名、标题等关键词</li>
+              <li><strong>重新导出</strong> — 用历史数据再次导出</li>
+              <li><strong>恢复产品</strong> — 恢复为未导出状态</li>
+              <li><strong>复制列</strong> — 表格视图表头点击复制整列</li>
+              <li><strong>清空历史 / 删除单条</strong></li>
+            </ul>
+          </section>
+
+          <div class="guide-category">功能设置（齿轮 ⚙️）</div>
+
+          <section class="guide-block" id="settings-image">
+            <h2>图片处理 / 产品信息选项</h2>
+            <p>齿轮 ⚙️ → 功能设置，向下滚动至「图片处理选项」与「产品信息选项」。右上角<strong>全选</strong>可一键勾选本区全部项；每项旁 <strong>?</strong> 可查看详细说明。</p>
+            <figure class="guide-figure" data-figure="fig2">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/02-settings-image-product.png" alt="功能设置：图片处理、产品信息、价格倍率" loading="lazy" />
+                <span class="guide-pin" style="left:22%;top:17%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:22%;top:43%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:35%;top:83%" data-pin="3">3</span>
+              </div>
+              <figcaption class="guide-caption">图 2 · 图片处理选项 · 产品信息选项 · 价格倍率设置</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 2 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig2">
+                <li id="fig2-pin-1" data-pin="1"><strong><span class="pin-num">1</span>图片处理选项</strong> — 采集 / 发布前对轮播图批量处理，勾选后在导出或发布时自动执行。</li>
+                <li id="fig2-pin-2" data-pin="2"><strong><span class="pin-num">2</span>产品信息选项</strong> — 对标题、SKU、属性值做随机化或规范化，降低重复度、提高过审率。</li>
+                <li id="fig2-pin-3" data-pin="3"><strong><span class="pin-num">3</span>价格倍率设置</strong> — 按「Temu 全托管 / 半托管」等平台独立配置；卡片显示「未启用 / 已启用」，点击卡片进入倍率编辑。</li>
+              </ol>
+            </div>
+            <h3 class="guide-sub">图片处理（逐项说明）</h3>
+            <ul class="feature-list">
+              <li><strong>图片尺寸修改</strong> — 采集时调整为平台合适尺寸（如 800×800）</li>
+              <li><strong>图片翻译</strong> — OCR + 翻译图片内文字（需配置翻译 API）</li>
+              <li><strong>主图添加马赛克</strong> — 遮挡 logo / 敏感区域</li>
+              <li><strong>图片去重</strong> — 删除相似重复轮播图</li>
+              <li><strong>随机背景</strong> — 替换随机背景</li>
+              <li><strong>轮播图随机排序</strong> — 打乱轮播顺序</li>
+            </ul>
+            <h3 class="guide-sub">产品信息（逐项说明）</h3>
+            <ul class="feature-list">
+              <li><strong>标题规格随机</strong> — 标题内规格顺序随机化</li>
+              <li><strong>SKU 规格随机</strong> — SKU 排列随机</li>
+              <li><strong>SKU 随意组合</strong> — 自由组合颜色/尺寸生成新 SKU</li>
+              <li><strong>随机选择属性值</strong> — 店小秘带 * 必填属性：优先默认配置 → 唯一选项自动选 → 同义词 / 随机</li>
+              <li><strong>型号值同义</strong> — 型号等同义词替换</li>
+              <li><strong>不携带产品视频</strong> — 采集时忽略视频</li>
+              <li><strong>视频重新上传</strong> — 下载后上传自有存储</li>
+              <li><strong>标题默认英文</strong> — 中文标题自动译英</li>
+            </ul>
+            <div class="tip-box">💡 价格倍率卡片在图 2 底部；平台总开关与汇率在<a href="#settings-price">图 3</a>。倍率开启后，供货价 = 原价 × 倍率（可设固定值或随机区间）。</div>
+          </section>
+
+          <section class="guide-block" id="settings-price">
+            <h2>价格倍率 / 汇率 / 平台开关</h2>
+            <p>在功能设置中继续向下滚动，可见各平台启用开关、汇率换算与其他快捷按钮。</p>
+            <figure class="guide-figure" data-figure="fig3">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/03-settings-rate-other.png" alt="功能设置：平台开关、汇率换算、其他设置" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:17%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:62%;top:41%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:42%;top:58%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:22%;top:78%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:50%;top:78%" data-pin="5">5</span>
+                <span class="guide-pin" style="left:78%;top:78%" data-pin="6">6</span>
+              </div>
+              <figcaption class="guide-caption">图 3 · 平台启用 · 汇率换算 · 其他设置与快捷按钮</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 3 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig3">
+                <li id="fig3-pin-1" data-pin="1"><strong><span class="pin-num">1</span>平台启用</strong> — Temu 全托管 / 半托管 / Amazon / Shein 四个复选框；未启用的平台不会在侧栏平台卡片中生效。</li>
+                <li id="fig3-pin-2" data-pin="2"><strong><span class="pin-num">2</span>汇率换算</strong> — 采集 / 导出时将外币供货价换算为人民币（CNY）；约每 6 小时自动刷新，也可点<strong>刷新实时汇率</strong>手动更新。</li>
+                <li id="fig3-pin-3" data-pin="3"><strong><span class="pin-num">3</span>其他设置</strong> — 申报价格阈值按钮、历史去重、描述增强、调试日志等；默认建议保持「历史重复数据不采集」与「Temu 描述营销增强」开启。</li>
+                <li id="fig3-pin-4" data-pin="4"><strong><span class="pin-num">4</span>立即更新店铺选项</strong> — 同步店小秘店铺列表（与侧栏「更新店铺」相同功能）。</li>
+                <li id="fig3-pin-5" data-pin="5"><strong><span class="pin-num">5</span>半托运费 / 仓库设置</strong> — 配置半托管国家、仓库与运费模板，详见<a href="#settings-warehouse">半托仓库章节</a>。</li>
+                <li id="fig3-pin-6" data-pin="6"><strong><span class="pin-num">6</span>飞书表格配置</strong> — 核价 / 采集数据同步飞书，详见<a href="#settings-warehouse">飞书章节</a>。</li>
+              </ol>
+            </div>
+            <ul class="feature-list">
+              <li><strong>Temu 全托管 / 半托管 / Amazon / Shein 倍率</strong> — 各平台独立开关；固定倍率或随机范围（入口在图 2 价格倍率卡片）</li>
+              <li><strong>汇率换算</strong> — 显示当前 USD/CNY 等汇率与数据来源、更新时间</li>
+              <li><strong>刷新实时汇率</strong> — 手动刷新汇率</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="settings-ai">
+            <h2>智能优化功能（设置内）</h2>
+            <p>功能设置 → <strong>AI 智能优化功能</strong>区域。每项卡片有<strong>启用</strong>复选框；部分项另有「采集时同步执行」的上项勾选。改后须点底部<strong>保存</strong>。</p>
+            <figure class="guide-figure" data-figure="fig4">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/04-settings-ai.png" alt="功能设置：AI 智能优化功能" loading="lazy" />
+                <span class="guide-pin" style="left:38%;top:33%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:82%;top:33%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:38%;top:49%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:82%;top:49%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:38%;top:65%" data-pin="5">5</span>
+                <span class="guide-pin" style="left:82%;top:65%" data-pin="6">6</span>
+                <span class="guide-pin" style="left:77%;top:27%" data-pin="7">7</span>
+              </div>
+              <figcaption class="guide-caption">图 4 · AI 智能优化功能（六项卡片 + 配置按钮）</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 4 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig4">
+                <li id="fig4-pin-1" data-pin="1"><strong><span class="pin-num">1</span>标题重写</strong> — 启用后侧栏「AI 优化」可用；勾选上项则采集完成时同步重写标题。</li>
+                <li id="fig4-pin-2" data-pin="2"><strong><span class="pin-num">2</span>背景替换</strong> — 启用后可用 AI 优化；勾选上项则采集时按参考图生成展示图。</li>
+                <li id="fig4-pin-3" data-pin="3"><strong><span class="pin-num">3</span>AI 裂变</strong> — 发布时通过 AI 生成额外变体（非采集时执行）。</li>
+                <li id="fig4-pin-4" data-pin="4"><strong><span class="pin-num">4</span>亚马逊描述</strong> — 导出亚马逊格式时自动生成描述、五要点等。</li>
+                <li id="fig4-pin-5" data-pin="5"><strong><span class="pin-num">5</span>尺寸识别</strong> — AI 分析图片识别长宽高与重量，写入包装信息。</li>
+                <li id="fig4-pin-6" data-pin="6"><strong><span class="pin-num">6</span>主图去水印</strong> — 亚马逊模板填充时自动去除水印。</li>
+                <li id="fig4-pin-7" data-pin="7"><strong><span class="pin-num">7</span>配置（紫色按钮）</strong> — 打开 AI 模型配置面板，设置 API Key、模型与提示词，详见<a href="#ai-panel">AI 模型配置</a>。</li>
+              </ol>
+            </div>
+            <ul class="feature-list">
+              <li><strong>AI 标题重写</strong> — 优化商品标题；侧栏「AI 优化」或采集时执行</li>
+              <li><strong>AI 背景替换</strong> — 参考图生成商品展示图</li>
+              <li><strong>AI 裂变</strong> — 发布时生成 1～5 个变体；可选：限制轮播图数量、重写标题、替换图片、去除详情</li>
+              <li><strong>AI 亚马逊描述</strong> — 导出亚马逊格式时生成描述与五要点</li>
+              <li><strong>AI 尺寸识别</strong> — 识别包装长宽高重量</li>
+              <li><strong>AI 主图去水印</strong> — 模板填充时去水印；可先检测是否有文字</li>
+              <li><strong>⚙️ 配置</strong> — 打开 AI 模型配置独立面板（见下文）</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="settings-publish">
+            <h2>发布选项</h2>
+            <p>功能设置 → <strong>发布选项</strong>：控制默认发布方式、自动发布阈值与并行数量。</p>
+            <figure class="guide-figure" data-figure="fig5">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/05-settings-publish.png" alt="功能设置：发布选项与默认属性入口" loading="lazy" />
+                <span class="guide-pin" style="left:32%;top:30%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:58%;top:30%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:32%;top:43%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:32%;top:54%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:32%;top:65%" data-pin="5">5</span>
+                <span class="guide-pin" style="left:82%;top:72%" data-pin="6">6</span>
+              </div>
+              <figcaption class="guide-caption">图 5 · 发布方式 · 自动发布 · 发布并行 · 限制规格数量</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 5 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig5">
+                <li id="fig5-pin-1" data-pin="1"><strong><span class="pin-num">1</span>产品直接发布</strong> — 默认走侧栏橙色「直接发布」流程，提交到店小秘 / Temu。</li>
+                <li id="fig5-pin-2" data-pin="2"><strong><span class="pin-num">2</span>保存至店小秘草稿箱</strong> — 默认存入草稿，适合先人工检查再发布。</li>
+                <li id="fig5-pin-3" data-pin="3"><strong><span class="pin-num">3</span>启用自动发布</strong> — 未导出数量达到设定值（如 10）时，按上方选定方式自动发布。</li>
+                <li id="fig5-pin-4" data-pin="4"><strong><span class="pin-num">4</span>发布并行</strong> — 同时处理 N 个商品（如 2），加快 Excel 准备与亚马逊发布；数值过大可能被限流。</li>
+                <li id="fig5-pin-5" data-pin="5"><strong><span class="pin-num">5</span>限制发布规格数量</strong> — 勾选后最多发布 N 个 SKU，可从开头或随机选取（适合规格过多的商品）。</li>
+                <li id="fig5-pin-6" data-pin="6"><strong><span class="pin-num">6</span>默认属性设置</strong> — 下方「编辑属性」入口，详见<a href="#settings-attr">图 6</a>。</li>
+              </ol>
+            </div>
+            <ul class="feature-list">
+              <li><strong>产品直接发布 / 保存至店小秘草稿箱</strong> — 默认发布方式（与侧栏「发布模式」联动）</li>
+              <li><strong>启用自动发布</strong> — 未导出数量达到阈值 N 时自动发布</li>
+              <li><strong>发布并行</strong> — 同时处理商品数（1～5）</li>
+              <li><strong>限制发布规格数量</strong> — 最多发布 N 个 SKU；从开始或随机选取</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="settings-attr">
+            <h2>默认属性 / 亚马逊默认值</h2>
+            <p>功能设置继续向下：预填店小秘必填属性、管理属性统计、配置亚马逊模板默认值。</p>
+            <figure class="guide-figure" data-figure="fig6">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/06-settings-attr-amazon.png" alt="功能设置：默认属性、属性统计、亚马逊模式" loading="lazy" />
+                <span class="guide-pin" style="left:82%;top:20%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:82%;top:42%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:82%;top:68%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:78%;top:92%" data-pin="4">4</span>
+              </div>
+              <figcaption class="guide-caption">图 6 · 默认属性设置 · 属性统计数据 · 亚马逊模式设置</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 6 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig6">
+                <li id="fig6-pin-1" data-pin="1"><strong><span class="pin-num">1</span>编辑属性</strong> — 预览并编辑店小秘发布时的默认属性（如材质、产品优势、推荐用途）；发布时优先填入这些值。</li>
+                <li id="fig6-pin-2" data-pin="2"><strong><span class="pin-num">2</span>管理统计</strong> — 查看已统计的分类 / 属性 / 属性值数量；可按类目管理、导入或删除统计数据。</li>
+                <li id="fig6-pin-3" data-pin="3"><strong><span class="pin-num">3</span>配置默认值（亚马逊）</strong> — 上传 Excel 模板后，系统按表头自动填充；此处预设品牌、制造商、商品状况等固定字段（橙色 Amazon 区域）。</li>
+                <li id="fig6-pin-4" data-pin="4"><strong><span class="pin-num">4</span>底部四按钮</strong> — <strong>导出全部</strong>备份设置 JSON；<strong>导入</strong>恢复；<strong>重置</strong>恢复默认；<strong>保存</strong>写入修改（每次改设置必点）。</li>
+              </ol>
+            </div>
+            <ul class="feature-list">
+              <li><strong>编辑属性</strong> — 店小秘发布默认属性预览与编辑</li>
+              <li><strong>管理统计</strong> — 按类目管理属性值使用统计；可导入 / 删除</li>
+              <li><strong>⚙️ 配置默认值（亚马逊）</strong> — 亚马逊模板字段默认值（品牌名、制造商、商品状况等）</li>
+            </ul>
+            <h3 class="guide-sub">设置面板底部（图 6 最下方）</h3>
+            <ul class="feature-list">
+              <li><strong>导出全部</strong> — 导出全部设置为 JSON 备份</li>
+              <li><strong>导入</strong> — 从 JSON 恢复（含极鲸云 Token、类目映射等）</li>
+              <li><strong>重置</strong> — 恢复默认；AI 相关选项一并关闭</li>
+              <li><strong>保存</strong> — 写入当前所有修改</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="settings-warehouse" data-search="半托管 仓库 运费 店小秘 API 同步仓库 国家 运费模板">
+            <h2>半托运费仓库 / 飞书表格</h2>
+            <h3 class="guide-sub">半托运费 · 仓库设置（操作步骤）</h3>
+            <p>功能设置 → <strong>半托运费 / 仓库设置</strong>（见<a href="#settings-price">图 3</a>绿色按钮）。半托管发布前需为各国家配置仓库与运费模板。</p>
+            <ol>
+              <li><strong>选择店铺</strong> — 下拉选择店小秘中的半托管店铺（需先在店小秘将店铺设为半托管模式）。</li>
+              <li><strong>选择国家</strong> — 勾选要经营的国家（可「全部」或展开更多国家多选）。</li>
+              <li><strong>国家设置</strong> — 为每个已选国家指定<strong>发货仓库</strong>与<strong>运费模板</strong>（从店小秘同步的列表中选择）。</li>
+              <li><strong>🔄 更新仓库数据</strong> — 从店小秘重新拉取最新仓库列表。</li>
+              <li><strong>保存</strong> — 写入本地；半托管商品发布时会自动套用对应国家配置。</li>
+            </ol>
+            <div class="tip-box">💡 首次打开面板时会尝试同步仓库；若提示「没有找到半托管店铺」，请先在店小秘确认店铺类型，并点侧栏「更新店铺」刷新列表。</div>
+
+            <h3 class="guide-sub" id="feishu-config">飞书表格配置（三标签）</h3>
+            <p>功能设置 → <strong>飞书表格配置</strong>（见<a href="#settings-price">图 3</a>蓝色按钮）。三个标签页共用同一套 App ID / App Secret，只需在「基础配置」填一次。</p>
+
+            <h4 class="guide-sub guide-sub-sm">图 7 · 基础配置</h4>
+            <figure class="guide-figure" data-figure="fig7">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/07-feishu-basic.png" alt="飞书表格配置：基础配置" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:22%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:52%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:68%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:82%;top:92%" data-pin="4">4</span>
+              </div>
+              <figcaption class="guide-caption">图 7 · 飞书应用凭证（App ID / App Secret）</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 7 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig7">
+                <li id="fig7-pin-1" data-pin="1"><strong><span class="pin-num">1</span>三个标签页</strong> — 基础配置 / 核价数据 / 采集数据；切换标签配置不同同步功能。</li>
+                <li id="fig7-pin-2" data-pin="2"><strong><span class="pin-num">2</span>应用 ID</strong> — 在<a href="https://open.feishu.cn/" target="_blank" rel="noopener">飞书开放平台</a>创建应用后获取，格式如 <code>cli_xxxxxx</code>。</li>
+                <li id="fig7-pin-3" data-pin="3"><strong><span class="pin-num">3</span>应用密钥</strong> — App Secret，与 App ID 配对使用，所有飞书功能共用。</li>
+                <li id="fig7-pin-4" data-pin="4"><strong><span class="pin-num">4</span>测试连接 / 保存配置</strong> — 填好 App ID 与密钥后，可先点<strong>🔗 测试连接</strong>验证凭证是否有效，再点<strong>保存配置</strong>写入本地。</li>
+              </ol>
+            </div>
+
+            <h4 class="guide-sub guide-sub-sm">图 8 · 核价数据</h4>
+            <figure class="guide-figure" data-figure="fig8">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/08-feishu-pricing.png" alt="飞书表格配置：核价数据" loading="lazy" />
+                <span class="guide-pin" style="left:37%;top:22%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:42%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:62%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:88%;top:58%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:50%;top:72%" data-pin="5">5</span>
+                <span class="guide-pin" style="left:82%;top:92%" data-pin="6">6</span>
+              </div>
+              <figcaption class="guide-caption">图 8 · 1688 核价结果同步飞书多维表格</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 8 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig8">
+                <li id="fig8-pin-1" data-pin="1"><strong><span class="pin-num">1</span>核价数据标签</strong> — 1688 图搜核价结果写入飞书多维表格。</li>
+                <li id="fig8-pin-2" data-pin="2"><strong><span class="pin-num">2</span>多维表格 Token</strong> — 从飞书表格 URL 中获取，如 <code>https://xxx.feishu.cn/base/bascnxxxxxx</code> 中的 <code>bascnxxxxxx</code>。</li>
+                <li id="fig8-pin-3" data-pin="3"><strong><span class="pin-num">3</span>店铺表格映射</strong> — 填写店铺 ID 与对应表格 ID（<code>tblxxxxxx</code>），将不同店铺核价写入不同表。</li>
+                <li id="fig8-pin-4" data-pin="4"><strong><span class="pin-num">4</span>添加</strong> — 确认一行映射后点绿色「+ 添加」。</li>
+                <li id="fig8-pin-5" data-pin="5"><strong><span class="pin-num">5</span>当前店铺 ID</strong> — 自动读取 Temu 卖家页店铺；若显示「未检测到」，请在 Temu 页面刷新后重试。</li>
+                <li id="fig8-pin-6" data-pin="6"><strong><span class="pin-num">6</span>保存配置</strong> — 保存核价同步设置。</li>
+              </ol>
+            </div>
+
+            <h4 class="guide-sub guide-sub-sm">图 9 · 采集数据</h4>
+            <figure class="guide-figure" data-figure="fig9">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/09-feishu-collect.png" alt="飞书表格配置：采集数据" loading="lazy" />
+                <span class="guide-pin" style="left:63%;top:22%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:38%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:58%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:50%;top:78%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:82%;top:92%" data-pin="5">5</span>
+              </div>
+              <figcaption class="guide-caption">图 9 · 产品采集记录同步飞书（自动建表 / 去重）</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 9 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig9">
+                <li id="fig9-pin-1" data-pin="1"><strong><span class="pin-num">1</span>采集数据标签</strong> — 将插件采集的商品记录同步到飞书。</li>
+                <li id="fig9-pin-2" data-pin="2"><strong><span class="pin-num">2</span>采集数据 Token</strong> — 目标飞书多维表格 Token，同样从 URL 中获取。</li>
+                <li id="fig9-pin-3" data-pin="3"><strong><span class="pin-num">3</span>表格管理</strong> — 显示已创建的同步表格列表；首次上传时自动创建。</li>
+                <li id="fig9-pin-4" data-pin="4"><strong><span class="pin-num">4</span>自动管理说明</strong> — 每表最多 2 万条，接近满额自动建新表；按「平台 + 产品 ID」去重。</li>
+                <li id="fig9-pin-5" data-pin="5"><strong><span class="pin-num">5</span>保存配置</strong> — 保存采集同步设置。</li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="guide-block" id="settings-other">
+            <h2>其他设置</h2>
+            <p>位于功能设置中部（见<a href="#settings-price">图 3 · 其他设置</a>区域），与平台开关、汇率在同一屏。</p>
+            <ul class="feature-list">
+              <li><strong>显示申报价格阈值设置按钮</strong> — Temu 卖家页右下角显示阈值浮动钮</li>
+              <li><strong>历史重复数据不采集</strong> — 已采集链接自动跳过（建议保持开启）</li>
+              <li><strong>Temu 描述营销增强</strong> — 详情 HTML 差异化 / 季节文案（建议保持开启）</li>
+              <li><strong>扩展调试日志</strong> — 控制台输出 [采集助手] 调试信息</li>
+              <li><strong>立即更新店铺选项</strong> — 同步店小秘店铺列表</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="ai-panel" data-search="AI 模型配置 API Key 智谱 文字模型 图片模型 视觉模型 扩展工具 高级 极鲸云 Token 科大讯飞 Cookie 提示词">
+            <h2>AI 模型配置面板</h2>
+            <p>入口：功能设置 → 智能优化区 → 紫色 <strong>⚙️ 配置</strong>。首次使用建议从「入门」标签按三步完成：填 API → 选模型 → 保存。</p>
+
+            <h3 class="guide-sub">图 10 · 入门（快速上手）</h3>
+            <figure class="guide-figure" data-figure="fig10">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/10-ai-intro.png" alt="AI 模型配置：入门" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:18%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:38%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:55%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:50%;top:72%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:82%;top:93%" data-pin="5">5</span>
+              </div>
+              <figcaption class="guide-caption">图 10 · 入门：配置 API → 选模型 → 保存并启用</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 10 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig10">
+                <li id="fig10-pin-1" data-pin="1"><strong><span class="pin-num">1</span>六个标签页</strong> — 入门 / 文字 / 图片 / 视觉 / 扩展工具 / 高级。</li>
+                <li id="fig10-pin-2" data-pin="2"><strong><span class="pin-num">2</span>步骤 ①</strong> — 到「文字模型」选服务商（智谱 AI、ModelScope 等），填写 API 地址与 Key；支持粘贴 cURL 自动解析。</li>
+                <li id="fig10-pin-3" data-pin="3"><strong><span class="pin-num">3</span>步骤 ②</strong> — 添加模型名称（如 <code>glm-4-flash</code>），设优先级与每日限额（0 = 不限）。</li>
+                <li id="fig10-pin-4" data-pin="4"><strong><span class="pin-num">4</span>步骤 ③</strong> — 点「保存配置」，再到功能设置勾选 AI 功能「启用」。</li>
+                <li id="fig10-pin-5" data-pin="5"><strong><span class="pin-num">5</span>保存配置</strong> — 右下角蓝色按钮，修改任何 AI 设置后必点。</li>
+              </ol>
+            </div>
+
+            <h3 class="guide-sub">图 11 · 文字模型</h3>
+            <figure class="guide-figure" data-figure="fig11">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/11-ai-text.png" alt="AI 模型配置：文字模型" loading="lazy" />
+                <span class="guide-pin" style="left:35%;top:28%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:42%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:62%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:12%;top:58%" data-pin="4">4</span>
+                <span class="guide-pin" style="left:82%;top:93%" data-pin="5">5</span>
+              </div>
+              <figcaption class="guide-caption">图 11 · 文字模型：标题优化、文案生成、亚马逊描述</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 11 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig11">
+                <li id="fig11-pin-1" data-pin="1"><strong><span class="pin-num">1</span>服务商</strong> — 下拉选择智谱 AI 等；可「+」添加自定义服务商、「管理」编辑。</li>
+                <li id="fig11-pin-2" data-pin="2"><strong><span class="pin-num">2</span>API Key</strong> — 填写密钥；右侧「获取 API Key」跳转官网。支持从 cURL 示例一键导入。</li>
+                <li id="fig11-pin-3" data-pin="3"><strong><span class="pin-num">3</span>模型列表</strong> — 按优先级排序，达到每日限额自动切换下一个模型；拖拽调整顺序。</li>
+                <li id="fig11-pin-4" data-pin="4"><strong><span class="pin-num">4</span>+ 添加</strong> — 新增模型行，填写模型名与每日限额（次/天）。</li>
+                <li id="fig11-pin-5" data-pin="5"><strong><span class="pin-num">5</span>保存配置</strong> — 保存文字模型与提示词设置。</li>
+              </ol>
+            </div>
+
+            <h3 class="guide-sub">图 12 · 图片模型</h3>
+            <figure class="guide-figure" data-figure="fig12">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/12-ai-image.png" alt="AI 模型配置：图片模型" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:38%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:58%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:78%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:82%;top:93%" data-pin="4">4</span>
+              </div>
+              <figcaption class="guide-caption">图 12 · 图片模型：展示图生成、去水印、轮播图处理数量</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 12 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig12">
+                <li id="fig12-pin-1" data-pin="1"><strong><span class="pin-num">1</span>商品展示图生成</strong> — 参考图 → 展示图的 AI 提示词；用于「背景替换」功能。</li>
+                <li id="fig12-pin-2" data-pin="2"><strong><span class="pin-num">2</span>去水印</strong> — 主图去水印提示词；需在功能设置启用「主图去水印」。</li>
+                <li id="fig12-pin-3" data-pin="3"><strong><span class="pin-num">3</span>轮播图处理数量</strong> — 0 = 仅 SKU 图；1～10 = 前 N 张轮播 + 全部 SKU 图。</li>
+                <li id="fig12-pin-4" data-pin="4"><strong><span class="pin-num">4</span>保存配置</strong> — 保存图片相关提示词。</li>
+              </ol>
+            </div>
+
+            <h3 class="guide-sub">视觉模型（无独立截图）</h3>
+            <p>AI 模型配置 → 切换到<strong>「视觉」</strong>标签（图 10 标注 ① 中六个标签之一）。界面结构与文字 / 图片模型相同：选服务商、填 API Key、添加模型列表；无单独截图，可按文字模型步骤对照操作。</p>
+            <ul class="feature-list">
+              <li><strong>用途</strong> — 产品尺寸识别：从商品图识别包装长 / 宽 / 高 / 重量，写入半托管等字段（需在功能设置启用「产品尺寸识别」）</li>
+              <li><strong>推荐模型</strong> — 魔塔 Qwen2.5-VL 等支持多图分析的视觉模型</li>
+              <li><strong>提示词方案</strong> — 顶部下拉可切换多套「视觉提示词方案」；支持<strong>保存方案 / 新增 / 删除</strong>，便于 A/B 测试不同识别策略</li>
+              <li><strong>尺寸识别提示词</strong> — 可编辑识别逻辑；系统会自动附加 JSON 输出格式，无需手写格式说明</li>
+              <li><strong>可用变量</strong> — <code>{title}</code> 标题、<code>{attributes}</code> 属性</li>
+            </ul>
+
+            <h3 class="guide-sub">图 13 · 扩展工具</h3>
+            <figure class="guide-figure" data-figure="fig13">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/13-ai-tools.png" alt="AI 模型配置：扩展工具" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:38%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:88%;top:42%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:50%;top:62%" data-pin="3">3</span>
+                <span class="guide-pin" style="left:82%;top:93%" data-pin="4">4</span>
+              </div>
+              <figcaption class="guide-caption">图 13 · 扩展工具：1688 图片翻译 Cookie、极鲸云 Token</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 13 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig13">
+                <li id="fig13-pin-1" data-pin="1"><strong><span class="pin-num">1</span>科大讯飞 Cookie</strong> — 1688 专用图片翻译；登录 fanyi.xfyun.cn 后在开发者工具复制 Cookie。</li>
+                <li id="fig13-pin-2" data-pin="2"><strong><span class="pin-num">2</span>测试 Cookie</strong> — 验证 Cookie 是否有效。</li>
+                <li id="fig13-pin-3" data-pin="3"><strong><span class="pin-num">3</span>极鲸云 Token</strong> — 列表页一键采集；从 geekbi.com 请求 Authorization 头复制 Bearer 后内容。</li>
+                <li id="fig13-pin-4" data-pin="4"><strong><span class="pin-num">4</span>保存配置</strong> — 保存扩展工具凭证。</li>
+              </ol>
+            </div>
+
+            <h3 class="guide-sub">图 14 · 高级</h3>
+            <figure class="guide-figure" data-figure="fig14">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/14-ai-advanced.png" alt="AI 模型配置：高级" loading="lazy" />
+                <span class="guide-pin" style="left:50%;top:35%" data-pin="1">1</span>
+                <span class="guide-pin" style="left:50%;top:62%" data-pin="2">2</span>
+                <span class="guide-pin" style="left:82%;top:93%" data-pin="3">3</span>
+              </div>
+              <figcaption class="guide-caption">图 14 · 高级：目标语言、Token、Temperature、并发与超时</figcaption>
+            </figure>
+            <div class="guide-callout">
+              <div class="guide-callout-title">图 14 标注说明</div>
+              <ol class="guide-pin-list" data-figure="fig14">
+                <li id="fig14-pin-1" data-pin="1"><strong><span class="pin-num">1</span>高级参数</strong> — 目标语言、最大 Token 数、Temperature；可勾选「请求前压缩提示词」减少消耗。</li>
+                <li id="fig14-pin-2" data-pin="2"><strong><span class="pin-num">2</span>并发与超时</strong> — AI 优化并行商品数、单商品图片并行数、API 超时、图片生成等待与轮询间隔。</li>
+                <li id="fig14-pin-3" data-pin="3"><strong><span class="pin-num">3</span>保存配置</strong> — 保存高级参数。</li>
+              </ol>
+            </div>
+
+            <h3 class="guide-sub">底部通用按钮</h3>
+            <ul class="feature-list">
+              <li><strong>恢复默认提示词</strong> — 重置各标签页提示词为内置默认</li>
+              <li><strong>导出配置 / 导入配置</strong> — 备份或迁移 AI 设置（含 API Key，请妥善保管）</li>
+              <li><strong>取消 / 保存配置</strong> — 关闭面板或写入全部 AI 配置</li>
+            </ul>
+
+            <h3 class="guide-sub">提示词方案（文字 / 图片 / 视觉）</h3>
+            <p>在「文字模型」「图片模型」「视觉模型」标签页顶部，各有一套独立的<strong>提示词方案</strong>工具栏：</p>
+            <ul class="feature-list">
+              <li><strong>下拉选择</strong> — 切换当前编辑的方案（如「默认提示词」「方案 2」）</li>
+              <li><strong>保存方案</strong> — 将当前输入框内容写入所选方案</li>
+              <li><strong>新增 / 删除</strong> — 创建新方案或删除当前方案（至少保留一套）</li>
+            </ul>
+            <p>三套方案互不影响：可给标题优化用一套提示词、给去水印用另一套，便于按场景切换。</p>
+
+            <h3 class="guide-sub">连接测试</h3>
+            <ul class="feature-list">
+              <li><strong>扩展工具 · 测试 Cookie</strong> — 图 13 标注 ②；验证科大讯飞 Cookie 是否可用于 1688 图片翻译</li>
+              <li><strong>文字模型 · 扣子平台</strong> — 选择扣子（Coze）服务商时，可点<strong>🧪 测试配置</strong>发送试请求验证 API</li>
+              <li><strong>飞书 · 测试连接</strong> — 图 7 基础配置底部<strong>🔗 测试连接</strong>，验证 App ID / Secret 是否有效</li>
+            </ul>
+
+            <table class="guide-table">
+              <thead><tr><th>标签页</th><th>用途</th></tr></thead>
+              <tbody>
+                <tr><td>文字模型</td><td>标题重写、AI 裂变、亚马逊描述等文案类功能</td></tr>
+                <tr><td>图片模型</td><td>背景替换、主图去水印提示词</td></tr>
+                <tr><td>视觉模型</td><td>尺寸识别（包装长宽高重量）</td></tr>
+                <tr><td>扩展工具</td><td>1688 图片翻译 Cookie、极鲸云 Token</td></tr>
+                <tr><td>高级</td><td>全局语言、Token 上限、并发 / 超时调优</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <div class="guide-category">辅助工具</div>
+
+          <section class="guide-block" id="product-library">
+            <h2>共享选品库 🌐</h2>
+            <p>侧栏标题栏地球图标 → 打开云端共享选品库。</p>
+            <ul class="feature-list">
+              <li><strong>搜索</strong> — 标题 / 链接关键词</li>
+              <li><strong>筛选</strong> — 平台、类目、上架时间、价格、评分、评论、导入次数</li>
+              <li><strong>Chip 筛选</strong> — 有专利 / 有商标 / 无风险 / 上升趋势 / 排除已上传 / 排除已导入</li>
+              <li><strong>排序</strong> — 综合、销量、评分、价格、采集时间等</li>
+              <li><strong>卡片详情</strong> — 销量曲线、属性、规格缩略图</li>
+              <li><strong>单条导入 / 批量导入</strong> — 导入本地收藏夹（消耗采集点数）</li>
+              <li><strong>全选当前页</strong> — 批量勾选导入</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="history-1688">
+            <h2>1688 查询 / 商标历史 🕐</h2>
+            <p>侧栏时钟图标 → 历史窗口两个 Tab：</p>
+            <ul class="feature-list">
+              <li><strong>1688 图片搜索</strong> — 历史图搜记录、价格统计；商品详情型号图也可发起 1688 搜同款</li>
+              <li><strong>亚马逊商标检查</strong> — 历史商标 / 型号 / 图片检查结果</li>
+              <li><strong>查看详情 / 删除 / 导出 CSV</strong></li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="category-mapper">
+            <h2>类目 ID 映射 ↗</h2>
+            <p>侧栏箭头图标，或快捷键 <strong>Ctrl+Shift+M</strong>。</p>
+            <ul class="feature-list">
+              <li><strong>Temu ↔ Shein / Temu ↔ 亚马逊 / Shein ↔ 亚马逊</strong> — 跨平台类目 ID 互查</li>
+              <li><strong>关键词搜索</strong> — 按类目名称搜索</li>
+              <li><strong>映射统计</strong> — 类目总数与覆盖率</li>
+              <li><strong>点击复制</strong> — 复制 ID / 路径</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="shortcuts" data-search="快捷键 Esc Ctrl 撤销 重做 类目映射 阈值">
+            <h2>快捷键</h2>
+            <table class="guide-table">
+              <thead><tr><th>快捷键</th><th>功能</th><th>适用页面</th></tr></thead>
+              <tbody>
+                <tr><td>Esc</td><td>依次关闭：商品详情 → 功能设置 → 侧栏折叠（详见<a href="#page-helpers">页面辅助</a>）</td><td>Temu 采集页</td></tr>
+                <tr><td>Ctrl + Shift + M</td><td>打开 / 关闭类目映射窗口</td><td>Temu 等采集页</td></tr>
+                <tr><td>Ctrl + 1</td><td>显示申报价格阈值浮动按钮</td><td>Temu 卖家后台</td></tr>
+                <tr><td>Ctrl + 2</td><td>隐藏申报价格阈值浮动按钮</td><td>Temu 卖家后台</td></tr>
+                <tr><td>Ctrl + Z</td><td>图片编辑器撤销</td><td>商品详情 · 图片编辑</td></tr>
+                <tr><td>Ctrl + Y</td><td>图片编辑器重做</td><td>商品详情 · 图片编辑</td></tr>
+                <tr><td>Ctrl + 滚轮</td><td>图片编辑器缩放画布</td><td>商品详情 · 图片编辑</td></tr>
+                <tr><td>Ctrl + 拖拽</td><td>图片编辑器平移画布</td><td>商品详情 · 图片编辑</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <div class="guide-category">卖家后台 · 申报价格阈值</div>
+
+          <section class="guide-block" id="threshold" data-search="申报价格阈值 核价 备货单 待发货 加入发货台 定时任务 卖家后台">
+            <h2>申报价格阈值工具</h2>
+            <p>适用于 <code>agentseller.temu.com</code>、<code>seller.kuajingmaihuo.com</code> 等卖家后台。<span class="badge-restrict">需付费会员（非体验档）</span></p>
+            <p>入口：页面右下角<strong>「申报价格阈值设置」</strong>浮动按钮（可在功能设置中开关显示）。</p>
+
+            <h3 class="guide-sub">基础设置</h3>
+            <ul class="feature-list">
+              <li><strong>利润率阈值 (%)</strong> — 达标则自动接受申报价</li>
+              <li><strong>成本价模式</strong> — 自动获取 1688 价 / 固定成本 / 价格差异百分比</li>
+              <li><strong>每次减价百分比</strong> — 利润率不足时逐步降价</li>
+              <li><strong>最多执行次数 / 执行间隔</strong> — 控制自动核价轮次</li>
+              <li><strong>达到最大次数时</strong> — 拒绝申报价 / 跳过不处理</li>
+              <li><strong>开始执行 / 停止执行</strong></li>
+            </ul>
+
+            <h3 class="guide-sub">定时任务</h3>
+            <ul class="feature-list">
+              <li><strong>启用定时任务</strong> — 定时一键拒绝调价</li>
+              <li><strong>间隔执行 / 每天定时</strong></li>
+              <li><strong>紧急停止</strong></li>
+              <li><strong>自动移除营销弹窗</strong> — 隐藏卖家中心营销浮层</li>
+            </ul>
+
+            <h3 class="guide-sub">快捷工具 Tab</h3>
+            <ul class="feature-list">
+              <li><strong>一键拒绝调价</strong> — 拒绝所有待处理调价</li>
+              <li><strong>清除弹窗</strong></li>
+              <li><strong>待发货列表</strong> — SKC/SKU、换仓、约快递、导出 JSON（见下节明细）</li>
+              <li><strong>备货单列表</strong> — 同步卖家中心备货子单，支持搜索、筛选、批量加入发货台（见下节明细）</li>
+              <li><strong>核价成功数据</strong> — 批量查询、上传飞书、导出 CSV、查看供应商</li>
+              <li><strong>功能设置</strong> — 打开采集端功能设置</li>
+              <li><strong>核价日志 📋</strong> — 核价 / 飞书 / 1688 / 系统日志</li>
+              <li><strong>执行记录 📊</strong> — 自动核价轮次历史，可导出 CSV</li>
+            </ul>
+            <div class="tip-box">💡 店小秘域名 (<code>dianxiaomi.com</code>) 会自动清理烦人弹窗，不显示采集侧栏。</div>
+
+            <h3 class="guide-sub">域名限制说明</h3>
+            <p>部分工具必须在<strong>正确卖家域名</strong>使用，否则会提示跳转：</p>
+            <ul class="feature-list">
+              <li><strong>待发货列表 / 备货单列表</strong> — 需在 <code>agentseller.temu.com</code> 卖家中心</li>
+              <li><strong>备货单列表</strong> — 跳转备货管理子单页</li>
+            </ul>
+
+            <h3 class="guide-sub">待发货列表（明细）</h3>
+            <ul class="feature-list">
+              <li>查看 SKC / SKU 待发货数量，复制 ID</li>
+              <li><strong>导出 JSON</strong> — 按 SKC 分组复制 JSON 数据</li>
+              <li><strong>换仓</strong> — 修改发货仓库</li>
+              <li><strong>约快递</strong> — 预约快递相关操作</li>
+            </ul>
+
+            <h3 class="guide-sub">备货单列表（明细）</h3>
+            <p>阈值工具 → <strong>备货单列表</strong>，需在 <code>agentseller.temu.com</code> 卖家中心打开。弹窗与卖家中心备货管理数据同步，便于批量操作。</p>
+            <ul class="feature-list">
+              <li><strong>三个主 Tab</strong> — 紧急备货 / 普通备货 / 定制品；普通备货下还有「待创建」「待发货」子 Tab</li>
+              <li><strong>搜索</strong> — 备货单号 / SKC / 商品名；支持仓库、类目、超时、今日可发、标签（履约考核 / VMI / JIT）、状态等筛选</li>
+              <li><strong>列表字段</strong> — 备货单号、商品图与 SKC、状态时间线（发货 / 到货截止）、SKU 明细、申报价、库存水位</li>
+              <li><strong>单条操作</strong> — 备货管理、修改数量、加入发货台、操作记录；单号旁 📋 可复制</li>
+              <li><strong>加入发货台</strong> — 「待创建」状态会先自动<strong>接单</strong>，再校验 restrictionReason，确认后提交；不可加入时会显示原因</li>
+              <li><strong>批量操作</strong> — 勾选多行 → 底部<strong>批量加入发货台</strong>或<strong>批量取消备货单</strong></li>
+              <li><strong>分页</strong> — 每页 10 / 20 / 40 / 100 条，支持首页 / 末页 / 跳转页码</li>
+            </ul>
+
+            <h3 class="guide-sub">核价成功数据（明细）</h3>
+            <ul class="feature-list">
+              <li><strong>一键查询全部</strong> — 批量查未查询 SKU 的 1688 成本</li>
+              <li><strong>上传全部到飞书</strong> — 需先配置飞书「核价数据」表格</li>
+              <li><strong>导出 CSV</strong>、<strong>导入已导出 SKC</strong> — 数据管理</li>
+              <li><strong>查看供应商</strong> — 单条 SKU 供应商信息</li>
+              <li><strong>刷新 / 清除本地缓存</strong></li>
+            </ul>
+
+            <h3 class="guide-sub">核价日志 / 执行记录</h3>
+            <ul class="feature-list">
+              <li><strong>核价日志</strong> — 筛选：核价决策 / 飞书 / 1688 查询 / 系统；含错误详情列</li>
+              <li><strong>执行记录</strong> — 自动核价每轮统计；刷新、清空、导出 CSV、删除单条</li>
+            </ul>
+
+            <h3 class="guide-sub">阈值浮动按钮</h3>
+            <ul class="feature-list">
+              <li>右下角「申报价格阈值设置」可点 × 关闭；在功能设置重新开启</li>
+              <li>运行中显示<strong>浮动停止按钮</strong>，可紧急停止自动核价</li>
+            </ul>
+          </section>
+
+          <section class="guide-block" id="feature-index" data-search="功能索引 清单 覆盖">
+            <h2>功能覆盖索引</h2>
+            <p>以下为对照代码库整理的<strong>功能清单</strong>，若某功能未在正文展开，可在此检索名称：</p>
+            <table class="guide-table">
+              <thead><tr><th>模块</th><th>功能点</th><th>正文章节</th></tr></thead>
+              <tbody>
+                <tr><td>采集</td><td>收藏商品、列表+采集、多链接批量、抓取当前页、导入表格、极鲸云、GeekBI、链接管理、抓取历史、实时日志</td><td><a href="#collect-single">采集</a> · <a href="#geekbi">极鲸云</a></td></tr>
+                <tr><td>侧栏</td><td>折叠/展开、拖拽宽度、会员、清理缓存、操作说明、齿轮设置、选品库、1688历史、类目映射、回顶</td><td><a href="#sidebar">侧栏</a> · <a href="#page-helpers">页面辅助</a></td></tr>
+                <tr><td>详情</td><td>轮播切换、图片编辑、下载、去水印、规格编辑、1688同款、尺码指南、包装方案、半托管字段、亚马逊关键词、保存修改</td><td><a href="#detail">商品详情</a></td></tr>
+                <tr><td>发布</td><td>单/多模式、四平台托管、草稿/直接发布、店铺多选、固定类目/属性、导出/发布/模板/检查、已导出筛选</td><td><a href="#publish-ops">发布</a> · <a href="#exported-filter">已导出筛选</a> · <a href="#dianxiaomi-status">店小秘状态</a></td></tr>
+                <tr><td>批量</td><td>批量编辑、AI优化、处理失败、导入商品、更新店铺、导出历史、商标检查</td><td><a href="#batch-ops">批量工具</a> · <a href="#import-products">导入商品</a></td></tr>
+                <tr><td>设置</td><td>图片6项、产品8项、四平台倍率、汇率、AI6项+裂变、发布4项、默认属性、亚马逊默认、半托仓库、飞书3Tab、导入导出JSON、齿轮触发条</td><td><a href="#settings-image">功能设置</a> · <a href="#settings-warehouse">半托仓库</a> · <a href="#feishu-config">飞书</a></td></tr>
+                <tr><td>AI</td><td>文字/图片/视觉模型、提示词方案、cURL导入、测试Cookie、扣子测试、飞书测试连接</td><td><a href="#ai-panel">AI 模型配置</a></td></tr>
+                <tr><td>卖家后台</td><td>自动核价、定时拒绝、待发货、备货单（接单/加入发货台/取消）、核价数据、日志、执行记录、一键拒绝、清弹窗</td><td><a href="#threshold">申报价格阈值</a></td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="guide-block" id="troubleshoot">
+            <h2>常见问题</h2>
+            <h3 class="guide-sub">无法访问 Temu 前台</h3>
+            <ol>
+              <li>侧栏「清理缓存」→ 关闭所有 Temu 标签 → 重开 www.temu.com</li>
+              <li>仍失败：开 VPN 后访问；清理后可能需重新登录</li>
+            </ol>
+            <h3 class="guide-sub">验证后无侧栏 / 无齿轮 / 双面板</h3>
+            <ol>
+              <li><code>chrome://extensions/</code> 重新加载扩展 → 刷新页面</li>
+            </ol>
+            <h3 class="guide-sub">点数 / 极鲸云用完</h3>
+            <p>体验档 20 点/天、极鲸云 5 次/天，次日重置；或输入更高档位验证码升级。</p>
+            <h3 class="guide-sub">发布失败</h3>
+            <ol>
+              <li>检查店小秘 API 与店铺；点「处理失败」看原因</li>
+              <li>固定类目 / 补全默认属性；减少单次发布数量</li>
+            </ol>
+            <h3 class="guide-sub">体验档提示「请开通会员」</h3>
+            <p>卖家后台阈值、部分高级工具需青铜及以上；采集侧栏基础功能在体验档可用（受点数限制）。</p>
+            <div class="tip-box">📺 演示视频：<a href="video.html#video-intro">安装</a> · <a href="video.html#video-collect">采集发布</a> · <a href="video.html#video-troubleshoot">清理缓存/VPN</a>；仍无法解决请验证弹窗「联系客服」。</div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="../index.html">← 返回首页</a>
+      <a href="video.html">视频教程 →</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/guide-pins.js"></script>
+  <script src="../js/guide-search.js"></script>
+</body>
+</html>
