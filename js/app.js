@@ -194,12 +194,23 @@
             ? `<div class="video-embed">${embed}</div>`
             : `<div class="video-embed">视频链接待配置<br><small>编辑 data/versions.json → videos</small></div>`;
 
+          const metaParts = [];
+          if (v.duration) metaParts.push(escapeHtml(v.duration));
+          if (v.shareUrl) {
+            metaParts.push(
+              `<a href="${escapeHtml(v.shareUrl)}" target="_blank" rel="noopener noreferrer">在哔哩哔哩观看</a>`
+            );
+          }
+          const metaHtml = metaParts.length
+            ? `<div class="video-meta">${metaParts.join(' · ')}</div>`
+            : '';
+
           return `
             <div class="video-card" id="video-${escapeHtml(key)}">
               ${embedHtml}
               <div class="video-body">
                 <h3>${escapeHtml(v.title)}</h3>
-                <div class="video-meta">${escapeHtml(v.duration || '')}</div>
+                ${metaHtml}
                 ${v.note ? `<p class="video-note">${escapeHtml(v.note)}</p>` : ''}
               </div>
             </div>

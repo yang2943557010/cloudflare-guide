@@ -46,24 +46,24 @@
   ],
   "videos": {
     "intro": {
-      "title": "插件安装与首次激活",
-      "duration": "1:02",
-      "url": "assets/videos/install.mp4",
-      "embedType": "local",
+      "title": "Temu 采集插件安装",
+      "duration": "",
+      "url": "https://www.bilibili.com/video/BV1XtVD6AEfA",
+      "shareUrl": "https://b23.tv/PpdQkK2",
       "note": "下载解压 → Chrome 加载扩展 → 验证码激活"
     },
     "collect": {
-      "title": "商品采集与发布流程",
-      "duration": "4:05",
-      "url": "assets/videos/collect.mp4",
-      "embedType": "local",
-      "note": "收藏商品、侧栏发布、功能设置概览"
+      "title": "插件三种采集",
+      "duration": "",
+      "url": "https://www.bilibili.com/video/BV1VtVD6PEYh",
+      "shareUrl": "https://b23.tv/U6mAisk",
+      "note": "三种采集方式演示与侧栏发布流程"
     },
     "troubleshoot": {
-      "title": "清理缓存 / VPN / 无法访问前台",
-      "duration": "0:45",
-      "url": "assets/videos/troubleshoot-vpn.mp4",
-      "embedType": "local",
+      "title": "Temu 前端清理缓存",
+      "duration": "",
+      "url": "https://www.bilibili.com/video/BV1GbVD6YEo4",
+      "shareUrl": "https://b23.tv/HE2dVrC",
       "note": "侧栏清理缓存、开 VPN、重开 Temu 标签页"
     }
   },
