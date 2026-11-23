@@ -70,6 +70,8 @@
           <a href="#settings-price">价格 / 汇率</a>
           <a href="#settings-ai">智能优化 AI</a>
           <a href="#settings-publish">发布选项</a>
+          <a href="#erp-provider">店小秘 / 妙手</a>
+          <a href="#desktop-bridge">桌面同步</a>
           <a href="#settings-attr">默认属性 / 亚马逊</a>
           <a href="#settings-warehouse">半托仓库 / 飞书</a>
           <a href="#feishu-config">飞书表格配置</a>
@@ -668,11 +670,62 @@
               </ol>
             </div>
             <ul class="feature-list">
-              <li><strong>产品直接发布 / 保存至店小秘草稿箱</strong> — 默认发布方式（与侧栏「发布模式」联动）</li>
+              <li><strong>产品直接发布 / 保存至店小秘草稿箱</strong> — 默认发布方式（与侧栏「发布模式」联动；切换妙手后文案变为「妙手采集箱」）</li>
               <li><strong>启用自动发布</strong> — 未导出数量达到阈值 N 时自动发布</li>
               <li><strong>发布并行</strong> — 同时处理商品数（1～5）</li>
               <li><strong>限制发布规格数量</strong> — 最多发布 N 个 SKU；从开始或随机选取</li>
             </ul>
+          </section>
+
+          <section class="guide-block" id="erp-provider" data-search="店小秘 妙手 ERP 发布平台 91miaoshou 切换店铺">
+            <h2>店小秘 / 妙手切换</h2>
+            <p>插件支持两套 ERP 发布通道，<strong>同一时间只能选一个</strong>。店铺列表、草稿箱文案、更新店铺接口都会随选择切换，且各自记住上次选中的店铺。</p>
+            <ol>
+              <li>打开侧栏齿轮 → <strong>功能设置 → 发布选项</strong>。</li>
+              <li>在 <strong>ERP 平台</strong> 中选择「店小秘」或「妙手」。</li>
+              <li>若使用妙手：按提示填写妙手开放平台相关账号信息（本地保存），并到<a href="https://erp.91miaoshou.com/open_platform/index" target="_blank" rel="noopener">妙手开放平台</a>完成授权。</li>
+              <li>点底部<strong>保存</strong>，再回侧栏点<strong>更新店铺</strong>同步店铺列表。</li>
+              <li>侧栏发布模式会显示为「店小秘草稿箱」或「妙手采集箱」；「直接发布」逻辑不变。</li>
+            </ol>
+            <div class="tip-box">💡 切换 ERP 后若店铺下拉为空，先确认对应后台已绑定店铺，再点「更新店铺」。店小秘与妙手的店铺选择互不影响。</div>
+            <figure class="guide-figure" data-figure="fig-erp">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/05-settings-publish.png" alt="功能设置中的发布选项（含 ERP 相关配置）" loading="lazy" />
+              </div>
+              <figcaption class="guide-caption">图 · 发布选项区域：在此切换默认发布方式，并配置店小秘 / 妙手</figcaption>
+            </figure>
+          </section>
+
+          <section class="guide-block" id="desktop-bridge" data-search="TemuDesk 桌面 同步 打开桌面 从桌面拉取 桌面未连接 desktop">
+            <h2>TemuDesk 桌面同步</h2>
+            <p>若已安装 <strong>TemuDesk</strong> 桌面应用，可在侧栏连接桌面端：采集商品自动同步、编辑后补丁同步，或手动从桌面拉取回侧栏。</p>
+            <h3 class="guide-sub">开启步骤</h3>
+            <ol>
+              <li>安装并启动 TemuDesk 桌面应用（与浏览器插件配套使用）。</li>
+              <li>侧栏齿轮 → 功能设置，找到<strong>桌面同步</strong>相关选项：
+                <ul>
+                  <li><strong>启用桌面同步</strong> — 总开关</li>
+                  <li><strong>显示桌面连接状态栏</strong> — 侧栏顶部显示「桌面未连接 / 已连接」</li>
+                  <li><strong>采集时自动同步到桌面</strong></li>
+                  <li><strong>编辑后同步到桌面</strong> — 侧栏编辑、批量编辑、AI 优化保存后推送</li>
+                  <li><strong>显示操作按钮</strong> — 「打开桌面 / 同步到桌面 / 从桌面拉取」</li>
+                </ul>
+              </li>
+              <li>保存设置后，确认状态栏变为已连接；必要时点「打开桌面」拉起应用。</li>
+            </ol>
+            <h3 class="guide-sub">侧栏按钮说明</h3>
+            <ul class="feature-list">
+              <li><strong>打开桌面</strong> — 启动 / 聚焦 TemuDesk</li>
+              <li><strong>同步到桌面</strong> — 将当前未导出列表推送到桌面端</li>
+              <li><strong>从桌面拉取</strong> — 合并更新桌面产品到侧栏列表</li>
+            </ul>
+            <div class="warn-box">⚠️ 状态长期显示「桌面未连接」时：确认桌面应用已运行、本机防火墙未拦截本地桥接端口，然后刷新 Temu 页面重试。</div>
+            <figure class="guide-figure" data-figure="fig-desktop">
+              <div class="guide-figure-media">
+                <img src="../assets/guide/01-sidepanel.png" alt="侧栏顶部区域（会员状态、清理缓存、操作说明与桌面状态栏所在位置）" loading="lazy" />
+              </div>
+              <figcaption class="guide-caption">图 · 侧栏顶部：启用桌面同步后，状态栏与操作按钮会出现在此区域</figcaption>
+            </figure>
           </section>
 
           <section class="guide-block" id="settings-attr">
@@ -1115,9 +1168,10 @@
                 <tr><td>采集</td><td>收藏商品、列表+采集、多链接批量、抓取当前页、导入表格、极鲸云、GeekBI、链接管理、抓取历史、实时日志</td><td><a href="#collect-single">采集</a> · <a href="#geekbi">极鲸云</a></td></tr>
                 <tr><td>侧栏</td><td>折叠/展开、拖拽宽度、会员、清理缓存、操作说明、齿轮设置、选品库、1688历史、类目映射、回顶</td><td><a href="#sidebar">侧栏</a> · <a href="#page-helpers">页面辅助</a></td></tr>
                 <tr><td>详情</td><td>轮播切换、图片编辑、下载、去水印、规格编辑、1688同款、尺码指南、包装方案、半托管字段、亚马逊关键词、保存修改</td><td><a href="#detail">商品详情</a></td></tr>
-                <tr><td>发布</td><td>单/多模式、四平台托管、草稿/直接发布、店铺多选、固定类目/属性、导出/发布/模板/检查、已导出筛选</td><td><a href="#publish-ops">发布</a> · <a href="#exported-filter">已导出筛选</a> · <a href="#dianxiaomi-status">店小秘状态</a></td></tr>
+                <tr><td>发布</td><td>单/多模式、四平台托管、草稿/直接发布、店小秘/妙手切换、店铺多选、固定类目/属性、导出/发布/模板/检查、已导出筛选</td><td><a href="#publish-ops">发布</a> · <a href="#erp-provider">店小秘/妙手</a> · <a href="#dianxiaomi-status">店小秘状态</a></td></tr>
+                <tr><td>桌面</td><td>TemuDesk 连接状态、打开桌面、同步到桌面、从桌面拉取、采集/编辑自动同步</td><td><a href="#desktop-bridge">桌面同步</a></td></tr>
                 <tr><td>批量</td><td>批量编辑、AI优化、处理失败、导入商品、更新店铺、导出历史、商标检查</td><td><a href="#batch-ops">批量工具</a> · <a href="#import-products">导入商品</a></td></tr>
-                <tr><td>设置</td><td>图片6项、产品8项、四平台倍率、汇率、AI6项+裂变、发布4项、默认属性、亚马逊默认、半托仓库、飞书3Tab、导入导出JSON、齿轮触发条</td><td><a href="#settings-image">功能设置</a> · <a href="#settings-warehouse">半托仓库</a> · <a href="#feishu-config">飞书</a></td></tr>
+                <tr><td>设置</td><td>图片6项、产品8项、四平台倍率、汇率、AI6项+裂变、发布4项、默认属性、亚马逊默认、半托仓库、飞书3Tab、桌面同步开关、导入导出JSON、齿轮触发条</td><td><a href="#settings-image">功能设置</a> · <a href="#settings-warehouse">半托仓库</a> · <a href="#feishu-config">飞书</a> · <a href="#desktop-bridge">桌面</a></td></tr>
                 <tr><td>AI</td><td>文字/图片/视觉模型、提示词方案、cURL导入、测试Cookie、扣子测试、飞书测试连接</td><td><a href="#ai-panel">AI 模型配置</a></td></tr>
                 <tr><td>卖家后台</td><td>自动核价、定时拒绝、待发货、备货单（接单/加入发货台/取消）、核价数据、日志、执行记录、一键拒绝、清弹窗</td><td><a href="#threshold">申报价格阈值</a></td></tr>
               </tbody>

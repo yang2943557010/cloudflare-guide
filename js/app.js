@@ -110,11 +110,40 @@
     return '';
   }
 
+  function renderFeatureCard(feature) {
+    const steps = (feature.steps || [])
+      .slice(0, 3)
+      .map((s) => `<li>${escapeHtml(s)}</li>`)
+      .join('');
+    const img = feature.image
+      ? `<img src="${escapeHtml(siteUrl(feature.image))}" alt="${escapeHtml(feature.title)}" loading="lazy" />`
+      : '';
+    const tag = feature.tag
+      ? `<span class="feature-card-tag">${escapeHtml(feature.tag)}</span>`
+      : '';
+
+    return `
+      <a class="feature-card" href="${escapeHtml(siteUrl(feature.href || 'guide/article.html'))}">
+        <div class="feature-card-cover">
+          ${img}
+          ${tag}
+        </div>
+        <div class="feature-card-body">
+          <h3>${escapeHtml(feature.title || '')}</h3>
+          <p>${escapeHtml(feature.summary || '')}</p>
+          ${steps ? `<ol class="feature-card-steps">${steps}</ol>` : ''}
+          <span class="feature-card-cta">查看操作说明 →</span>
+        </div>
+      </a>
+    `;
+  }
+
   async function initHome() {
     const currentEl = document.getElementById('current-version');
     const listEl = document.getElementById('home-version-list');
+    const featureEl = document.getElementById('home-feature-list');
     const downloadEl = document.getElementById('latest-download-panel');
-    if (!currentEl && !listEl && !downloadEl) return;
+    if (!currentEl && !listEl && !downloadEl && !featureEl) return;
 
     try {
       const data = await loadVersions();
@@ -138,14 +167,21 @@
             <a class="btn btn-primary" href="${escapeHtml(data.links.downloadLatest)}" target="_blank" rel="noopener">下载最新版</a>
           </div>`;
       }
+      if (featureEl) {
+        const features = data.recentFeatures || [];
+        featureEl.innerHTML = features.length
+          ? features.map(renderFeatureCard).join('')
+          : `<p class="version-summary">暂无最近功能说明。</p>`;
+      }
       if (listEl) {
         const latestThree = (data.releases || []).slice(0, 3);
         listEl.innerHTML = latestThree
-          .map((r) => renderVersionItem(r, { compact: true, ...linkOpts }))
+          .map((r) => renderVersionItem(r, { compact: false, ...linkOpts }))
           .join('');
       }
     } catch (e) {
       if (listEl) listEl.innerHTML = `<p class="version-summary">版本信息加载失败，请稍后刷新。</p>`;
+      if (featureEl) featureEl.innerHTML = `<p class="version-summary">功能说明加载失败，请稍后刷新。</p>`;
       console.error(e);
     }
   }

@@ -1,18 +1,31 @@
 {
   "productName": "Temu 采集助手",
-  "currentVersion": "9.0.1",
-  "siteUpdated": "2026-05-23",
+  "currentVersion": "8.9.38",
+  "siteUpdated": "2026-11-23",
   "releases": [
     {
-      "version": "9.0.1",
-      "date": "2026-05-23",
+      "version": "8.9.38",
+      "date": "2026-11-23",
       "status": "latest",
-      "summary": "体验档改造、用户 ID 绑定验证码、操作说明站点上线",
+      "summary": "桌面同步、妙手 ERP、开放接口与操作说明站点增强",
       "highlights": [
-        "所有档位均需验证码，支持到期续期",
-        "每个插件实例生成唯一用户 ID，验证码与本机绑定",
-        "验证弹窗与会员详情页展示用户 ID",
-        "修复验证后双面板、齿轮按钮丢失问题"
+        "侧栏支持 TemuDesk 桌面端连接、同步与拉取",
+        "发布平台可选店小秘 / 妙手，账号与店铺分开记忆",
+        "会员中心新增开放接口密钥管理",
+        "操作说明首页补充最近功能图文入口"
+      ],
+      "hasArticleGuide": true,
+      "hasVideoGuide": true
+    },
+    {
+      "version": "8.9.34",
+      "date": "2026-10-20",
+      "status": "stable",
+      "summary": "飞书同步、AI 模型配置与店小秘状态对照完善",
+      "highlights": [
+        "飞书表格：基础配置 / 核价数据 / 采集数据三标签",
+        "AI 模型配置：入门、文字、图片、视觉、扩展工具、高级",
+        "图文说明补充店小秘草稿箱 / 发布失败 / 在线产品对照"
       ],
       "hasArticleGuide": true,
       "hasVideoGuide": true
@@ -20,7 +33,7 @@
     {
       "version": "8.8.6",
       "date": "2026-04-15",
-      "status": "stable",
+      "status": "archived",
       "summary": "多平台采集与 AI 优化增强",
       "highlights": [
         "支持 Temu / 亚马逊 / Shein / 1688 等多平台采集",
@@ -44,6 +57,112 @@
       "hasVideoGuide": false
     }
   ],
+  "recentFeatures": [
+    {
+      "id": "publish",
+      "title": "直接发布 / 草稿箱",
+      "summary": "侧栏切换发布模式，按 3096KB 上限自动分批发货。",
+      "href": "guide/article.html#publish-ops",
+      "image": "assets/guide/thumb-publish.png",
+      "tag": "发布",
+      "steps": [
+        "侧栏选择托管模式与目标店铺",
+        "切换「店小秘草稿箱」或「直接发布」",
+        "勾选商品后点橙色主按钮提交"
+      ]
+    },
+    {
+      "id": "feishu",
+      "title": "飞书表格配置",
+      "summary": "核价结果与采集记录同步到飞书多维表格。",
+      "href": "guide/article.html#feishu-config",
+      "image": "assets/guide/07-feishu-basic.png",
+      "tag": "同步",
+      "steps": [
+        "功能设置 → 飞书表格配置",
+        "基础配置填写 App ID / Secret 并测试连接",
+        "按标签配置核价数据或采集数据 Token"
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "AI 模型配置",
+      "summary": "配置文字 / 图片 / 视觉模型，用于标题优化与去水印。",
+      "href": "guide/article.html#ai-panel",
+      "image": "assets/guide/10-ai-intro.png",
+      "tag": "AI",
+      "steps": [
+        "功能设置 → 智能优化 → ⚙️ 配置",
+        "入门页按三步填 API、选模型、保存",
+        "回到功能设置勾选需要的 AI 能力并启用"
+      ]
+    },
+    {
+      "id": "dianxiaomi",
+      "title": "店小秘状态对照",
+      "summary": "草稿箱、发布失败、在线产品分别在店小秘哪里找。",
+      "href": "guide/article.html#dianxiaomi-status",
+      "image": "assets/guide/15-dianxiaomi-status.png",
+      "tag": "发布",
+      "steps": [
+        "店小秘 → 产品 → 选择对应平台",
+        "待发布产品 = 草稿箱；在线产品 = 发布成功",
+        "发布失败可在侧栏点「处理失败」重试"
+      ]
+    },
+    {
+      "id": "desktop",
+      "title": "TemuDesk 桌面同步",
+      "summary": "侧栏连接桌面端，采集后自动同步或手动拉取。",
+      "href": "guide/article.html#desktop-bridge",
+      "image": "assets/guide/thumb-desktop.png",
+      "tag": "桌面",
+      "steps": [
+        "安装并打开 TemuDesk 桌面应用",
+        "功能设置开启「启用桌面同步」与状态栏",
+        "侧栏点「打开桌面 / 同步到桌面 / 从桌面拉取」"
+      ]
+    },
+    {
+      "id": "erp",
+      "title": "店小秘 / 妙手切换",
+      "summary": "发布通道二选一，店铺列表与草稿箱文案随 ERP 切换。",
+      "href": "guide/article.html#erp-provider",
+      "image": "assets/guide/05-settings-publish.png",
+      "tag": "发布",
+      "steps": [
+        "功能设置 → 发布选项 → ERP 平台",
+        "选择店小秘或妙手并保存",
+        "侧栏点「更新店铺」同步对应店铺列表"
+      ]
+    },
+    {
+      "id": "settings-ai",
+      "title": "智能优化开关",
+      "summary": "采集或发布时自动跑标题重写、背景替换等。",
+      "href": "guide/article.html#settings-ai",
+      "image": "assets/guide/04-settings-ai.png",
+      "tag": "AI",
+      "steps": [
+        "侧栏齿轮打开功能设置",
+        "在智能优化区勾选需要的能力",
+        "先完成 AI 模型配置，再点底部保存"
+      ]
+    },
+    {
+      "id": "troubleshoot",
+      "title": "清理缓存 / VPN",
+      "summary": "无法访问 Temu 前台时，先清缓存再开 VPN。",
+      "href": "guide/article.html#troubleshoot",
+      "image": "assets/guide/thumb-cache.png",
+      "tag": "排障",
+      "steps": [
+        "侧栏点「清理缓存」并确认",
+        "开启可访问 Temu 的 VPN / 节点",
+        "重新打开 www.temu.com 再采集"
+      ]
+    }
+  ],
   "videos": {
     "intro": {
       "title": "Temu 采集插件安装",
@@ -58,6 +177,13 @@
       "url": "https://www.bilibili.com/video/BV1VtVD6PEYh",
       "shareUrl": "https://b23.tv/U6mAisk",
       "note": "三种采集方式演示与侧栏发布流程"
+    },
+    "batch": {
+      "title": "Temu 免风控批量采集",
+      "duration": "",
+      "url": "https://www.bilibili.com/video/BV1C5yXzUE9q",
+      "shareUrl": "https://b23.tv/H8KknTI",
+      "note": "多链接批量采集演示，降低风控风险的采集节奏与操作要点"
     },
     "troubleshoot": {
       "title": "Temu 前端清理缓存",

@@ -8,7 +8,7 @@
 
 ```
 cloudflare-guide/
-├── index.html              # 首页：选择图文 / 视频 + 最近版本
+├── index.html              # 首页：选择图文 / 视频 + 最近功能卡片 + 最近版本
 ├── guide/
 │   ├── article.html        # 图文操作说明（分章节）
 │   └── video.html          # 视频教程（B 站嵌入）
