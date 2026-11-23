@@ -1,0 +1,18 @@
+# Temu 操作说明站点 → Worker Assets
+# 域名：https://temuchaozhu.251800.xyz/
+#
+# 部署（需使用拥有 251800.xyz 的账号 Token）：
+#   $env:CLOUDFLARE_API_TOKEN = "..."
+#   npx wrangler deploy
+#
+name = "temu-caiji-shuoming"
+compatibility_date = "2024-09-23"
+account_id = "72740151b689f0426c6de1f09f83deb9"
+
+[assets]
+directory = "./"
+# 排除大体积本地 mp4（线上用 B 站嵌入）与内部目录
+# 如需改排除规则，部署前可先拷贝到临时目录再改 directory
+
+[assets.html_handling]
+# 默认即可
